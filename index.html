@@ -3,57 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul | Enterprise Sales & Engineering</title>
+    <title>Paul | Technical GTM & Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #ffffff;
-            --text: #111111;
-            --accent: #666666;
-            --border: #eeeeee;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 80px 24px;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        :root { --bg: #ffffff; --text: #111111; --accent: #666666; --border: #eeeeee; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; max-width: 700px; margin: 0 auto; padding: 80px 24px; -webkit-font-smoothing: antialiased; }
         header { margin-bottom: 64px; }
-        
         h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
         .tagline { font-size: 1.25rem; color: var(--accent); margin-top: 8px; }
-
         section { margin-bottom: 56px; }
-        
         h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-
         .about-text { font-size: 1.15rem; }
-        .about-text b { font-weight: 600; color: #000; }
-
-        /* The "By the Numbers" Grid */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .stat-card { border: 1px solid var(--border); padding: 24px; border-radius: 4px; }
-        .stat-num { display: block; font-size: 1.5rem; font-weight: 800; }
-        .stat-desc { font-size: 0.9rem; color: var(--accent); }
-
+        b { color: #000; font-weight: 600; }
+        .pillars { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
+        .pillar-item { padding-left: 16px; border-left: 2px solid var(--border); transition: border-color 0.3s; }
+        .pillar-item:hover { border-left-color: #000; }
+        .pillar-item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px 0; color: #000; }
+        .pillar-item p { margin: 0; color: var(--accent); font-size: 1rem; }
         .links { display: flex; gap: 16px; margin-top: 32px; }
-        .btn { text-decoration: none; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 2px; transition: color 0.2s; }
-        .btn:hover { color: var(--accent); border-color: var(--accent); }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .grid { grid-template-columns: 1fr; }
-        }
+        .btn { text-decoration: none; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 2px; }
+        .field-notes { font-style: italic; color: var(--accent); font-size: 0.95rem; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>I'M PAUL.</h1>
         <p class="tagline">Enterprise Sales. Mechanical Engineer. Global GTM.</p>
@@ -62,73 +34,40 @@
     <section>
         <h2>The Story</h2>
         <p class="about-text">
-            Born in Chicago and technically forged at <b>Purdue</b>. I spent a decade as a <b>Chief Engineer</b> before making the strategic pivot to Enterprise Sales. 
-            <br><br>
-            I thrive in the high-stakes world of data and AI infrastructure. Most recently, I spent 7 years in <b>Sydney, Australia</b>, scaling <b>Confluent’s</b> APAC presence and selling complex automation solutions at <b>Tricentis</b>. Now, I'm returning to the US to help the next generation of Series B/C startups bridge the gap between deep engineering and enterprise adoption.
+            Born in Chicago and technically forged at <b>Purdue</b>. I spent a decade as a <b>Chief Engineer</b> before making the strategic pivot to Enterprise Sales. Most recently, I spent 7 years in <b>Sydney, Australia</b>, scaling <b>Confluent’s</b> APAC presence. Now, I’m returning to the US to help the next generation of AI and data infrastructure startups bridge the gap between deep engineering and enterprise adoption.
         </p>
     </section>
 
     <section>
-        <h2>By the Numbers</h2>
-        <div class="grid">
-            <div class="stat-card">
-                <span class="stat-num">110%+</span>
-                <span class="stat-desc">Lifetime average quota attainment.</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-num">0 ➔ $XM</span>
-                <span class="stat-desc">Territory expansion across Australia & SE Asia.</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-num">Chief Engineer</span>
-                <span class="stat-desc">Former technical lead for multi-million dollar ops.</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-num">Relocating</span>
-                <span class="stat-desc">San Francisco, Q3 2026.</span>
-            </div>
-        </div>
-    </section>
-  
-  <section>
-        <h2>Core Specializations</h2>
+        <h2>Core Pillars</h2>
         <div class="pillars">
             <div class="pillar-item">
-                <h3>Systems Thinking & Engineering Mindset</h3>
+                <h3>Systems Thinking</h3>
                 <p>Applying a mechanical engineering foundation to map complex enterprise architectures and identify technical bottlenecks before they stall a deal.</p>
             </div>
             <div class="pillar-item">
-                <h3>Zero-to-One Regional Expansion</h3>
-                <p>Proven experience building the APAC presence for Confluent from the ground up—scaling from an initial move to Sydney into a mature enterprise territory.</p>
+                <h3>Zero-to-One Expansion</h3>
+                <p>Proven experience building regional territories from scratch—scaling from an initial move to Sydney into a mature, high-performing enterprise market.</p>
             </div>
             <div class="pillar-item">
-                <h3>Technical Discovery & "The Bridge"</h3>
-                <p>Fluent in deep-technical "shop talk" with engineering teams while maintaining the ability to translate technical value into a business-case for C-suite stakeholders.</p>
-            </div>
-            <div class="pillar-item">
-                <h3>Full-Cycle Strategic Sales</h3>
-                <p>Expertise in navigating high-stakes hierarchies within the APAC "Big Four" banks, telcos, and utilities using a consultative, partner-led methodology.</p>
+                <h3>Technical "Shop Talk"</h3>
+                <p>Fluent in deep-technical discussions with engineering teams while maintaining the ability to translate value for C-suite stakeholders.</p>
             </div>
         </div>
     </section>
 
-    <style>
-        .pillars { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
-        .pillar-item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px 0; color: #000; }
-        .pillar-item p { margin: 0; color: var(--accent); font-size: 1rem; line-height: 1.5; }
-        
-        /* Subtle hover effect for that "modern" feel */
-        .pillar-item { padding-left: 16px; border-left: 2px solid var(--border); transition: border-color 0.3s; }
-        .pillar-item:hover { border-left-color: #000; }
-    </style>
+    <section>
+        <h2>Field Notes</h2>
+        <p class="field-notes">
+            When I'm not in the field, I'm likely optimizing my home <b>NAS environment</b>, learning the nuances of <b>GMRS radio</b> repeaters, or practicing <b>Wim Hof</b> breathwork.
+        </p>
+    </section>
 
     <footer>
         <div class="links">
-            <a href="https://linkedin.com/in/YOURPROFILE" class="btn">LinkedIn</a>
-            <a href="mailto:yourname@gmail.com" class="btn">Email</a>
-            <a href="#" class="btn">Photo Library</a>
+            <a href="https://linkedin.com/in/YOUR-PROFILE" class="btn">LinkedIn</a>
+            <a href="mailto:your-email@paultop.io" class="btn">Email</a>
         </div>
     </footer>
-
 </body>
 </html>
