@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Professional Journey</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoicGF1bHRvcCIsImEiOiJjbXA0bHI4M2QwYjZtMnlvbHpkdHl3cW5zIn0.vhAhlNS5-wtjkNsboEPnMA';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-streets-v12', // You can change this to 'dark-v11' for a minimalist look
+        projection: 'globe', // This creates the 3D effect
+        zoom: 1.5,
+        center: [0, 20]
+    });
+
+    map.on('style.load', () => {
+        map.setFog({
+            color: 'rgb(186, 210, 247)', // Lower atmosphere
+            'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
+            'horizon-blend': 0.02, // Atmosphere thickness
+            'space-color': 'rgb(11, 11, 25)', // Background color
+            'star-intensity': 0.6 // Brightness of stars
+        });
+    });
+
+    // Your Professional Locations
+    const locations = [
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850] },
+        { name: "Purdue University", coords: [-86.9145, 40.4237] },
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688] },
+        { name: "San Francisco", coords: [-122.4194, 37.7749] }
+    ];
+
+    // Add Pins
+    locations.forEach(loc => {
+        new mapboxgl.Marker({ color: '#3FB1CE' })
+            .setLngLat(loc.coords)
+            .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${loc.name}</h3>`))
+            .addTo(map);
+    });
+</script>
+</body>
+</html>
