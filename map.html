@@ -35,11 +35,59 @@
 
     // Your Professional Locations
     const locations = [
-        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850] },
-        { name: "Purdue University", coords: [-86.9145, 40.4237] },
-        { name: "Sydney, Australia", coords: [151.2093, -33.8688] },
-        { name: "San Francisco", coords: [-122.4194, 37.7749] }
-    ];
+       const locations = [
+        // --- AUSTRALIA & NZ ---
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base." },
+        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/bondi.jpg", description: "" },
+        { name: "Melbourne, Australia", coords: [144.9631, -37.8136], img: "images/melbourne.jpg", description: "" },
+        { name: "Byron Bay, Australia", coords: [153.6126, -28.6431], img: "images/byron.jpg", description: "" },
+        { name: "Gold Coast, Australia", coords: [153.4309, -28.0167], img: "images/goldcoast.jpg", description: "" },
+        { name: "Newcastle, Australia", coords: [151.7777, -32.9283], img: "images/newcastle.jpg", description: "" },
+        { name: "Cairns, Australia", coords: [145.7710, -16.9186], img: "images/cairns.jpg", description: "" },
+        { name: "Port Douglas, Australia", coords: [145.4660, -16.4836], img: "images/portdouglas.jpg", description: "" },
+        { name: "Whitsundays, Australia", coords: [148.9515, -20.2114], img: "images/whitsundays.jpg", description: "" },
+        { name: "Great Barrier Reef", coords: [147.6992, -18.2871], img: "images/gbr.jpg", description: "" },
+        { name: "Kiama, NSW", coords: [150.8541, -34.6713], img: "images/kiama.jpg", description: "" },
+        { name: "Perth, Australia", coords: [115.8605, -31.9505], img: "images/perth.jpg", description: "" },
+        { name: "Fremantle, Australia", coords: [115.7489, -32.0569], img: "images/fremantle.jpg", description: "" },
+        { name: "Rottnest Island, Australia", coords: [115.5118, -32.0062], img: "images/rottnest.jpg", description: "" },
+        { name: "Queenstown, NZ", coords: [168.6626, -45.0312], img: "images/queenstown.jpg", description: "" },
+        { name: "Fiordland National Park", coords: [167.7181, -45.4144], img: "images/fiordland.jpg", description: "" },
+        { name: "Dunedin, NZ", coords: [170.5028, -45.8788], img: "images/dunedin.jpg", description: "" },
+        { name: "Wellington, NZ", coords: [174.7762, -41.2865], img: "images/wellington.jpg", description: "" },
+        { name: "Christchurch, NZ", coords: [172.6333, -43.5321], img: "images/christchurch.jpg", description: "" },
+        { name: "Auckland, NZ", coords: [174.7633, -36.8485], img: "images/auckland.jpg", description: "" },
+
+        // --- ASIA ---
+        { name: "Denpasar, Bali", coords: [115.2126, -8.6705], img: "images/denpasar.jpg", description: "" },
+        { name: "Ubud, Bali", coords: [115.2625, -8.5069], img: "images/ubud.jpg", description: "" },
+        { name: "Batu, Bali", coords: [115.3528, -8.3533], img: "images/batu.jpg", description: "" },
+        { name: "Nusa Penida, Bali", coords: [115.5333, -8.7333], img: "images/penida.jpg", description: "" },
+        { name: "Nusa Dua, Bali", coords: [115.2191, -8.8017], img: "images/nusadua.jpg", description: "" },
+        { name: "Singapore", coords: [103.8198, 1.3521], img: "images/singapore.jpg", description: "" },
+        { name: "Bangkok, Thailand", coords: [100.5018, 13.7563], img: "images/bangkok.jpg", description: "" },
+        { name: "Tokyo, Japan", coords: [139.6503, 35.6762], img: "images/tokyo.jpg", description: "" },
+        { name: "Kawasaki, Japan", coords: [139.7029, 35.5308], img: "images/kawasaki.jpg", description: "" },
+        { name: "Hong Kong", coords: [114.1694, 22.3193], img: "images/hongkong.jpg", description: "" },
+
+        // --- EUROPE & AFRICA ---
+        { name: "Morocco", coords: [-7.0926, 31.7917], img: "images/morocco.jpg", description: "" },
+        { name: "Madrid, Spain", coords: [-3.7038, 40.4168], img: "images/madrid.jpg", description: "" },
+        { name: "Barcelona, Spain", coords: [2.1734, 41.3851], img: "images/barcelona.jpg", description: "" },
+        { name: "Dublin, Ireland", coords: [-6.2603, 53.3498], img: "images/dublin.jpg", description: "" },
+        { name: "Galway, Ireland", coords: [-9.0568, 53.2707], img: "images/galway.jpg", description: "" },
+        { name: "London, England", coords: [-0.1278, 51.5074], img: "images/london.jpg", description: "" },
+
+        // --- AMERICAS ---
+        { name: "Cartagena, Colombia", coords: [-75.4794, 10.3910], img: "images/cartagena.jpg", description: "" },
+        { name: "Panama City, Panama", coords: [-79.5197, 8.9833], img: "images/panama.jpg", description: "" },
+        { name: "San Jose, Costa Rica", coords: [-84.0827, 9.9281], img: "images/sanjose.jpg", description: "" },
+        { name: "Mexico City, Mexico", coords: [-99.1332, 19.4326], img: "images/mexicocity.jpg", description: "" },
+        { name: "Nassau, Bahamas", coords: [-77.3450, 25.0443], img: "images/nassau.jpg", description: "" },
+        { name: "Banff, Canada", coords: [-115.5708, 51.1784], img: "images/banff.jpg", description: "" },
+        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "The current home chapter." },
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Roots." }
+    ]; 
 
     // Add Pins
     locations.forEach(loc => {
