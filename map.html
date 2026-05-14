@@ -5,14 +5,9 @@
     <title>Professional Journey | Paul Thompson</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     
-    <!-- Favicon Integration -->
     <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-    <!-- Mapbox Assets -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -25,7 +20,7 @@
         body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* The Pulsing Marker */
+        /* REPAIRED MARKER STYLES */
         .pulse-marker {
             width: 15px;
             height: 15px;
@@ -35,6 +30,8 @@
             box-shadow: 0 0 0 rgba(63, 177, 206, 0.4);
             animation: pulse 2s infinite;
             border: 2px solid white;
+            display: block; /* Ensures visibility */
+            z-index: 999;   /* Forces pins to the top layer */
         }
 
         @keyframes pulse {
@@ -43,45 +40,20 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0); }
         }
 
-        /* Custom Popup Styling */
         .mapboxgl-popup-content {
             max-width: 280px;
             padding: 16px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border: none;
         }
 
-        h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text);
-        }
-
-        .popup-img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin-top: 8px;
-            border: 1px solid #eee;
-            display: block;
-        }
-
-        .popup-desc {
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-top: 12px;
-            line-height: 1.5;
-            font-style: italic;
-        }
+        h3 { margin: 0 0 8px 0; font-size: 1.1rem; font-weight: 800; color: var(--text); }
+        .popup-img { width: 100%; height: auto; border-radius: 6px; margin-top: 8px; border: 1px solid #eee; }
+        .popup-desc { font-size: 0.9rem; color: var(--accent); margin-top: 12px; line-height: 1.5; font-style: italic; }
     </style>
 </head>
 <body>
-
 <div id="map"></div>
-
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicGF1bHRvcCIsImEiOiJjbXA0bHI4M2QwYjZtMnlvbHpkdHl3cW5zIn0.vhAhlNS5-wtjkNsboEPnMA';
     
@@ -104,46 +76,13 @@
     });
 
     const locations = [
-        // --- AUSTRALIA & NZ ---
-        { 
-            name: "Sydney, Australia", 
-            coords: [151.2093, -33.8688], 
-            img: "images/sydney.jpg", 
-            description: "The 7-year home base for APAC expansion."
-        },
-        { 
-            name: "Bondi Beach, Australia", 
-            coords: [151.2743, -33.8915], 
-            img: "images/wedding.jpeg", 
-            description: "Established regional presence and a major life milestone."
-        },
-        { name: "Melbourne, Australia", coords: [144.9631, -37.8136], img: "images/melbourne.jpg", description: "" },
-        { name: "Byron Bay, Australia", coords: [153.6126, -28.6431], img: "images/byron.jpg", description: "" },
-        { name: "Gold Coast, Australia", coords: [153.4309, -28.0167], img: "images/goldcoast.jpg", description: "" },
-        { name: "Queenstown, NZ", coords: [168.6626, -45.0312], img: "images/queenstown.jpg", description: "" },
-        { name: "Auckland, NZ", coords: [174.7633, -36.8485], img: "images/auckland.jpg", description: "" },
-
-        // --- ASIA ---
-        { name: "Singapore", coords: [103.8198, 1.3521], img: "images/singapore.jpg", description: "" },
-        { name: "Tokyo, Japan", coords: [139.6503, 35.6762], img: "images/tokyo.jpg", description: "" },
-
-        // --- AMERICAS ---
-        { 
-            name: "San Francisco", 
-            coords: [-122.4194, 37.7749], 
-            img: "images/sf.jpg", 
-            description: "Current chapter: Tech GTM in the heart of AI."
-        },
-        { 
-            name: "Oak Park/Chicago", 
-            coords: [-87.7845, 41.8850], 
-            img: "images/chicago.jpg", 
-            description: "Hometown and roots."
-        }
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base for APAC expansion." },
+        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and a major life milestone." },
+        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "Current chapter: Tech GTM in the heart of AI." },
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Hometown and roots." }
     ]; 
 
     locations.forEach(loc => {
-        // Create the pulse marker element
         const el = document.createElement('div');
         el.className = 'pulse-marker';
 
