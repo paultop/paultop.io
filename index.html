@@ -110,9 +110,11 @@
         .links {
             display: flex;
             gap: 18px;
+            flex-wrap: wrap;
         }
 
-        .btn {
+        .btn,
+        .inline-link {
             text-decoration: none;
             font-weight: 600;
             color: var(--text);
@@ -121,7 +123,12 @@
             transition: opacity 0.2s ease;
         }
 
-        .btn:hover {
+        .inline-link {
+            border-bottom-width: 1px;
+        }
+
+        .btn:hover,
+        .inline-link:hover {
             opacity: 0.6;
         }
     </style>
@@ -137,7 +144,7 @@
     </header>
 
     <section>
-        <h2>The Story</h2>
+        <h2>My Story</h2>
 
         <div class="about-text">
 
@@ -161,11 +168,15 @@
                 I’m currently interested in AI infrastructure, data systems, and technical products with strong engineering cultures.
             </p>
 
+            <p>
+                Some of that journey is mapped here: <a href="/map.html" class="inline-link">Travel Map</a>.
+            </p>
+
         </div>
     </section>
 
     <section>
-        <h2>Core Pillars</h2>
+        <h2>How I Work</h2>
 
         <div class="pillars">
 
@@ -204,6 +215,7 @@
     <footer>
         <div class="links">
             <a href="https://linkedin.com/in/YOUR-PROFILE" class="btn">LinkedIn</a>
+            <a href="/map.html" class="btn">Travel Map</a>
             <a href="mailto:your-email@paultop.io" class="btn">Email</a>
         </div>
     </footer>
