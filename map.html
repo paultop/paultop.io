@@ -14,7 +14,6 @@
         body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; background: #0b0b19; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* THE FIX: Fixed dimensions and forced positioning for the pulse */
         .pulse-marker {
             width: 20px !important;
             height: 20px !important;
@@ -23,7 +22,6 @@
             cursor: pointer;
             border: 2px solid white;
             animation: pulse 2s infinite;
-            /* We remove everything that could cause it to drift to (0,0) */
         }
 
         @keyframes pulse {
@@ -58,10 +56,57 @@
     });
 
     const locations = [
+        // --- AUSTRALIA & NZ ---
         { name: "Sydney, Australia", coords: [151.2093, -33.8688], description: "The 7-year home base for APAC expansion." },
         { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and a major life milestone." },
+        { name: "Melbourne, Australia", coords: [144.9631, -37.8136] },
+        { name: "Byron Bay, Australia", coords: [153.6126, -28.6431] },
+        { name: "Gold Coast, Australia", coords: [153.4309, -28.0167] },
+        { name: "Newcastle, Australia", coords: [151.7777, -32.9283] },
+        { name: "Cairns, Australia", coords: [145.7710, -16.9186] },
+        { name: "Port Douglas, Australia", coords: [145.4660, -16.4836] },
+        { name: "Whitsundays, Australia", coords: [148.9515, -20.2114] },
+        { name: "Great Barrier Reef", coords: [147.6992, -18.2871] },
+        { name: "Kiama, NSW", coords: [150.8541, -34.6713] },
+        { name: "Perth, Australia", coords: [115.8605, -31.9505] },
+        { name: "Fremantle, Australia", coords: [115.7489, -32.0569] },
+        { name: "Rottnest Island, Australia", coords: [115.5118, -32.0062] },
+        { name: "Queenstown, NZ", coords: [168.6626, -45.0312] },
+        { name: "Fiordland National Park", coords: [167.7181, -45.4144] },
+        { name: "Dunedin, NZ", coords: [170.5028, -45.8788] },
+        { name: "Wellington, NZ", coords: [174.7762, -41.2865] },
+        { name: "Christchurch, NZ", coords: [172.6333, -43.5321] },
+        { name: "Auckland, NZ", coords: [174.7633, -36.8485] },
+
+        // --- ASIA ---
+        { name: "Denpasar, Bali", coords: [115.2126, -8.6705] },
+        { name: "Ubud, Bali", coords: [115.2625, -8.5069] },
+        { name: "Batu, Bali", coords: [115.3528, -8.3533] },
+        { name: "Nusa Penida, Bali", coords: [115.5333, -8.7333] },
+        { name: "Nusa Dua, Bali", coords: [115.2191, -8.8017] },
+        { name: "Singapore", coords: [103.8198, 1.3521] },
+        { name: "Bangkok, Thailand", coords: [100.5018, 13.7563] },
+        { name: "Tokyo, Japan", coords: [139.6503, 35.6762] },
+        { name: "Kawasaki, Japan", coords: [139.7029, 35.5308] },
+        { name: "Hong Kong", coords: [114.1694, 22.3193] },
+
+        // --- EUROPE & AFRICA ---
+        { name: "Morocco", coords: [-7.0926, 31.7917] },
+        { name: "Madrid, Spain", coords: [-3.7038, 40.4168] },
+        { name: "Barcelona, Spain", coords: [2.1734, 41.3851] },
+        { name: "Dublin, Ireland", coords: [-6.2603, 53.3498] },
+        { name: "Galway, Ireland", coords: [-9.0568, 53.2707] },
+        { name: "London, England", coords: [-0.1278, 51.5074] },
+
+        // --- AMERICAS ---
+        { name: "Cartagena, Colombia", coords: [-75.4794, 10.3910] },
+        { name: "Panama City, Panama", coords: [-79.5197, 8.9833] },
+        { name: "San Jose, Costa Rica", coords: [-84.0827, 9.9281] },
+        { name: "Mexico City, Mexico", coords: [-99.1332, 19.4326] },
+        { name: "Nassau, Bahamas", coords: [-77.3450, 25.0443] },
+        { name: "Banff, Canada", coords: [-115.5708, 51.1784] },
         { name: "San Francisco", coords: [-122.4194, 37.7749], description: "Current chapter: Tech GTM in the heart of AI." },
-        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], description: "Hometown and roots." }
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], description: "Raised in Oak Park." }
     ]; 
 
     map.on('style.load', () => {
@@ -80,12 +125,9 @@
                 ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
             `;
 
-            if (loc.name === "Bondi Beach, Australia") {
-                // Create the element
+            if (loc.img && loc.img !== "") {
                 const el = document.createElement('div');
                 el.className = 'pulse-marker';
-                
-                // Bolt it to the map specifically
                 new mapboxgl.Marker({ element: el, anchor: 'center' })
                     .setLngLat(loc.coords)
                     .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
