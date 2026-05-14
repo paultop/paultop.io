@@ -19,10 +19,29 @@
         :root {
             --accent: #666666;
             --text: #111111;
+            --pulse-color: rgba(63, 177, 206, 0.7);
         }
 
         body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+        /* The Pulsing Marker */
+        .pulse-marker {
+            width: 15px;
+            height: 15px;
+            background: #3FB1CE;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(63, 177, 206, 0.4);
+            animation: pulse 2s infinite;
+            border: 2px solid white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--pulse-color); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(63, 177, 206, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0); }
+        }
 
         /* Custom Popup Styling */
         .mapboxgl-popup-content {
@@ -30,11 +49,7 @@
             padding: 16px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .mapboxgl-popup-close-button {
-            padding: 8px;
-            font-size: 1.2rem;
+            border: none;
         }
 
         h3 {
@@ -75,7 +90,7 @@
         style: 'mapbox://styles/mapbox/satellite-streets-v12',
         projection: 'globe',
         zoom: 1.8,
-        center: [135, -15] // Centered towards APAC initially
+        center: [135, -15] 
     });
 
     map.on('style.load', () => {
@@ -88,7 +103,6 @@
         });
     });
 
-    // Your Professional Locations Data
     const locations = [
         // --- AUSTRALIA & NZ ---
         { 
@@ -112,11 +126,6 @@
         // --- ASIA ---
         { name: "Singapore", coords: [103.8198, 1.3521], img: "images/singapore.jpg", description: "" },
         { name: "Tokyo, Japan", coords: [139.6503, 35.6762], img: "images/tokyo.jpg", description: "" },
-        { name: "Hong Kong", coords: [114.1694, 22.3193], img: "images/hongkong.jpg", description: "" },
-
-        // --- EUROPE ---
-        { name: "London, England", coords: [-0.1278, 51.5074], img: "images/london.jpg", description: "" },
-        { name: "Madrid, Spain", coords: [-3.7038, 40.4168], img: "images/madrid.jpg", description: "" },
 
         // --- AMERICAS ---
         { 
@@ -133,15 +142,18 @@
         }
     ]; 
 
-    // Loop to generate Pins and interactive Popups
     locations.forEach(loc => {
+        // Create the pulse marker element
+        const el = document.createElement('div');
+        el.className = 'pulse-marker';
+
         const popupContent = `
             <h3>${loc.name}</h3>
             ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
             ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
         `;
 
-        new mapboxgl.Marker({ color: '#3FB1CE' })
+        new mapboxgl.Marker(el)
             .setLngLat(loc.coords)
             .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
             .addTo(map);
