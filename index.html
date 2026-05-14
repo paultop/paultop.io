@@ -4,62 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul | Technical GTM & Engineering</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+
     <style>
-        :root { --bg: #ffffff; --text: #111111; --accent: #666666; --border: #eeeeee; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; max-width: 700px; margin: 0 auto; padding: 80px 24px; -webkit-font-smoothing: antialiased; }
-        header { margin-bottom: 64px; }
-        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
-        .tagline { font-size: 1.25rem; color: var(--accent); margin-top: 8px; }
-        section { margin-bottom: 56px; }
-        h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-        .about-text { font-size: 1.15rem; }
-        b { color: #000; font-weight: 600; }
-        .pillars { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
-        .pillar-item { padding-left: 16px; border-left: 2px solid var(--border); transition: border-color 0.3s; }
-        .pillar-item:hover { border-left-color: #000; }
-        .pillar-item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px 0; color: #000; }
-        .pillar-item p { margin: 0; color: var(--accent); font-size: 1rem; }
-        .links { display: flex; gap: 16px; margin-top: 32px; }
-        .btn { text-decoration: none; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 2px; }
-        .field-notes { font-style: italic; color: var(--accent); font-size: 0.95rem; }
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --accent: #666666;
+            --border: #eeeeee;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            margin-bottom: 72px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-top: 10px;
+        }
+
+        section {
+            margin-bottom: 64px;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        .about-text p {
+            font-size: 1.18rem;
+            margin-bottom: 28px;
+        }
+
+        b {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .pillars {
+            display: grid;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .pillar-item {
+            padding-left: 18px;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.25s ease;
+        }
+
+        .pillar-item:hover {
+            border-left-color: #111;
+        }
+
+        .pillar-item h3 {
+            font-size: 1.05rem;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .pillar-item p {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .field-notes {
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 80px;
+        }
+
+        .links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .btn {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.6;
+        }
     </style>
 </head>
+
 <body>
+
     <header>
         <h1>I'M PAUL.</h1>
-        <p class="tagline">Enterprise Sales. Mechanical Engineer. Global GTM.</p>
+        <p class="tagline">
+            Enterprise Sales. Mechanical Engineer. Global GTM.
+        </p>
     </header>
 
     <section>
         <h2>The Story</h2>
-        <p class="about-text">
-            Born in Chicago and technically forged at <b>Purdue</b>. I spent a 4.5 years as a <b>Chief Engineer</b> at Jeco Plastics before making the strategic pivot to tech sales. I joined the early SDR at Confluent, and moved to Sydney in 2019. Most recently, I spent 7 years in <b>Sydney, Australia</b>, scaling <b>Confluent’s</b> APAC presence. Now, I’m returning to the US to help the next generation of AI and data infrastructure startups bridge the gap between deep engineering and enterprise adoption.
-        </p>
+
+        <div class="about-text">
+
+            <p>
+                I work best at the intersection of technical products, enterprise customers, and new markets.
+            </p>
+
+            <p>
+                I started my career in mechanical engineering and manufacturing, where I learned to think in systems, constraints, and root causes. That foundation eventually pulled me into enterprise technology sales, where I found I could help technical teams and business leaders understand each other.
+            </p>
+
+            <p>
+                I joined Confluent early and moved to Sydney in 2019 to help build the APAC market. Over the next seven years, I worked across Australia’s enterprise landscape helping customers adopt complex platforms in data, testing, and software delivery.
+            </p>
+
+            <p>
+                The common thread throughout my career has been understanding deeply technical products, simplifying complexity, and helping organizations turn engineering capability into real-world adoption.
+            </p>
+
+            <p>
+                I’m currently interested in AI infrastructure, data systems, and technical products with strong engineering cultures.
+            </p>
+
+        </div>
     </section>
 
     <section>
         <h2>Core Pillars</h2>
+
         <div class="pillars">
+
             <div class="pillar-item">
                 <h3>Systems Thinking</h3>
-                <p>Applying a mechanical engineering foundation to map complex enterprise architectures and identify technical bottlenecks before they stall a deal.</p>
+                <p>
+                    Engineering-first mindset for understanding complex systems, technical bottlenecks, and enterprise environments.
+                </p>
             </div>
+
             <div class="pillar-item">
                 <h3>Zero-to-One Expansion</h3>
-                <p>Proven experience building regional territories from scratch—scaling from an initial move to Sydney into a mature, high-performing enterprise market.</p>
+                <p>
+                    Experience helping technical companies establish and grow new markets across APAC.
+                </p>
             </div>
+
             <div class="pillar-item">
-                <h3>Technical "Shop Talk"</h3>
-                <p>Fluent in deep-technical discussions with engineering teams while maintaining the ability to translate value for C-suite stakeholders.</p>
+                <h3>Technical Shop Talk</h3>
+                <p>
+                    Comfortable with engineering teams while translating technical value into business outcomes.
+                </p>
             </div>
+
         </div>
     </section>
 
     <section>
         <h2>Field Notes</h2>
+
         <p class="field-notes">
-            When I'm not in the field, I'm likely optimizing my home <b>NAS environment</b>, learning the nuances of <b>GMRS radio</b> repeaters, or practicing <b>Wim Hof</b> breathwork.
+            When I'm not in the field, I'm probably optimizing my home <b>NAS environment</b>, learning the nuances of <b>GMRS radio</b> repeaters, experimenting with local AI tooling, or practicing <b>Wim Hof</b> breathwork.
         </p>
     </section>
 
@@ -69,5 +207,6 @@
             <a href="mailto:your-email@paultop.io" class="btn">Email</a>
         </div>
     </footer>
+
 </body>
 </html>
