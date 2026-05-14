@@ -17,10 +17,10 @@
             --pulse-color: rgba(63, 177, 206, 0.7);
         }
 
-        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* REPAIRED MARKER STYLES */
+        /* Pulsing Marker for pins WITH photos */
         .pulse-marker {
             width: 15px;
             height: 15px;
@@ -30,8 +30,6 @@
             box-shadow: 0 0 0 rgba(63, 177, 206, 0.4);
             animation: pulse 2s infinite;
             border: 2px solid white;
-            display: block; /* Ensures visibility */
-            z-index: 999;   /* Forces pins to the top layer */
         }
 
         @keyframes pulse {
@@ -40,6 +38,7 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0); }
         }
 
+        /* Standard Popup Styles */
         .mapboxgl-popup-content {
             max-width: 280px;
             padding: 16px;
@@ -65,6 +64,13 @@
         center: [135, -15] 
     });
 
+    const locations = [
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base for APAC expansion." },
+        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and a major life milestone." },
+        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "Current chapter: Tech GTM in the heart of AI." },
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Hometown and roots." }
+    ]; 
+
     map.on('style.load', () => {
         map.setFog({
             color: 'rgb(186, 210, 247)',
@@ -73,29 +79,29 @@
             'space-color': 'rgb(11, 11, 25)',
             'star-intensity': 0.6
         });
-    });
 
-    const locations = [
-        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base for APAC expansion." },
-        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and a major life milestone." },
-        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "Current chapter: Tech GTM in the heart of AI." },
-        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Hometown and roots." }
-    ]; 
+        locations.forEach(loc => {
+            let marker;
+            
+            const popupContent = `
+                <h3>${loc.name}</h3>
+                ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
+                ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
+            `;
 
-    locations.forEach(loc => {
-        const el = document.createElement('div');
-        el.className = 'pulse-marker';
+            // THE LOGIC: If there is an image, use the pulse. If not, use static.
+            if (loc.img && loc.img !== "") {
+                const el = document.createElement('div');
+                el.className = 'pulse-marker';
+                marker = new mapboxgl.Marker(el);
+            } else {
+                marker = new mapboxgl.Marker({ color: '#3FB1CE' });
+            }
 
-        const popupContent = `
-            <h3>${loc.name}</h3>
-            ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
-            ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
-        `;
-
-        new mapboxgl.Marker(el)
-            .setLngLat(loc.coords)
-            .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
-            .addTo(map);
+            marker.setLngLat(loc.coords)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
+                .addTo(map);
+        });
     });
 </script>
 </body>
