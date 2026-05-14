@@ -14,13 +14,12 @@
         :root {
             --accent: #666666;
             --text: #111111;
-            --pulse-color: rgba(63, 177, 206, 0.7);
         }
 
         body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; background: #0b0b19; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* Custom Pulse Marker */
+        /* Pulsing Marker */
         .pulse-marker {
             width: 15px;
             height: 15px;
@@ -33,8 +32,8 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 var(--pulse-color); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(63, 177, 206, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(63, 177, 206, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0); }
         }
 
@@ -64,10 +63,10 @@
     });
 
     const locations = [
-        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base for APAC expansion." },
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "", description: "The 7-year home base for APAC expansion." },
         { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and a major life milestone." },
-        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "Current chapter: Tech GTM in the heart of AI." },
-        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Hometown and roots." }
+        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "", description: "Current chapter: Tech GTM in the heart of AI." },
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "", description: "Hometown and roots." }
     ]; 
 
     map.on('style.load', () => {
@@ -79,29 +78,30 @@
             'star-intensity': 0.6
         });
 
-        // The "Fix": We wait a brief moment for the globe to stabilize before adding markers
-        setTimeout(() => {
-            locations.forEach(loc => {
-                let marker;
-                const popupContent = `
-                    <h3>${loc.name}</h3>
-                    ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
-                    ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
-                `;
+        locations.forEach(loc => {
+            const popupContent = `
+                <h3>${loc.name}</h3>
+                ${loc.img ? `<img src="${loc.img}" class="popup-img">` : ''}
+                ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
+            `;
 
-                if (loc.img && loc.img !== "") {
-                    const el = document.createElement('div');
-                    el.className = 'pulse-marker';
-                    marker = new mapboxgl.Marker(el);
-                } else {
-                    marker = new mapboxgl.Marker({ color: '#3FB1CE' });
-                }
-
-                marker.setLngLat(loc.coords)
+            // If it's Bondi Beach (the only one with an actual file), use the pulse
+            if (loc.name === "Bondi Beach, Australia") {
+                const el = document.createElement('div');
+                el.className = 'pulse-marker';
+                
+                new mapboxgl.Marker(el)
+                    .setLngLat(loc.coords)
                     .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
                     .addTo(map);
-            });
-        }, 500); 
+            } else {
+                // For everything else, use the reliable standard pin
+                new mapboxgl.Marker({ color: '#3FB1CE' })
+                    .setLngLat(loc.coords)
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
+                    .addTo(map);
+            }
+        });
     });
 </script>
 </body>
