@@ -107,21 +107,54 @@
             margin-top: 80px;
         }
 
-        .links {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
+      footer {
+    margin-top: 80px;
+    text-align: center;
+}
 
-        .btn,
-        .inline-link {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--text);
-            border-bottom: 2px solid var(--text);
-            padding-bottom: 2px;
-            transition: opacity 0.2s ease;
-        }
+.links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn,
+.inline-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 2px;
+    transition: opacity 0.2s ease;
+}
+
+.inline-link {
+    border-bottom-width: 1px;
+}
+
+.btn:hover,
+.inline-link:hover {
+    opacity: 0.6;
+}
+
+.footer-email {
+    margin-top: 32px;
+    font-size: 0.95rem;
+    color: var(--accent);
+}
+
+.footer-email a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: opacity 0.2s ease;
+}
+
+.footer-email a:hover {
+    opacity: 0.6;
+}
 
         .inline-link {
             border-bottom-width: 1px;
@@ -211,16 +244,16 @@
             When I'm not in the field, I'm usually tinkering with systems, designing parts in <b>Fusion 360</b>, optimizing my home <b>NAS environment</b>, learning <b>GMRS radio</b>, running along the coast, cooking, or practicing various <b>breathwork</b> techniques.
     </section>
 
-    <footer>
-        <div class="links">
-            <a href="https://linkedin.com/in/paultop4" class="btn">LinkedIn</a>
-            <a href="/map.html" class="btn">Where I've Been</a>
-            
-        </div>
-        <p class="footer-email">
+ <footer>
+    <div class="links">
+        <a href="https://linkedin.com/in/YOUR-PROFILE" class="btn">LinkedIn</a>
+        <a href="/map.html" class="btn">Where I've Been</a>
+    </div>
+
+    <p class="footer-email">
         <a href="mailto:paultop@aol.com">paultop@aol.com</a>
     </p>
-    </footer>
+</footer>
 
 </body>
 </html>
