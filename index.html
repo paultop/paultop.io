@@ -15,6 +15,11 @@
             --border: #eeeeee;
         }
 
+        ::selection {
+            background: #111111;
+            color: #ffffff;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
@@ -46,6 +51,15 @@
 
         section {
             margin-bottom: 64px;
+            animation: sectionFade 0.7s ease both;
+        }
+
+        section:nth-of-type(2) {
+            animation-delay: 0.08s;
+        }
+
+        section:nth-of-type(3) {
+            animation-delay: 0.16s;
         }
 
         h2 {
@@ -77,11 +91,12 @@
         .pillar-item {
             padding-left: 18px;
             border-left: 2px solid var(--border);
-            transition: border-color 0.25s ease;
+            transition: border-color 0.25s ease, transform 0.2s ease;
         }
 
         .pillar-item:hover {
             border-left-color: #111;
+            transform: translateX(2px);
         }
 
         .pillar-item h3 {
@@ -104,58 +119,16 @@
             line-height: 1.8;
         }
 
-        footer {
-            margin-top: 80px;
+        .btn,
+        .inline-link {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
         }
-
-      footer {
-    margin-top: 80px;
-    text-align: center;
-}
-
-.links {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.btn,
-.inline-link {
-    text-decoration: none;
-    font-weight: 600;
-    color: var(--text);
-    border-bottom: 2px solid var(--text);
-    padding-bottom: 2px;
-    transition: opacity 0.2s ease;
-}
-
-.inline-link {
-    border-bottom-width: 1px;
-}
-
-.btn:hover,
-.inline-link:hover {
-    opacity: 0.6;
-}
-
-.footer-email {
-    margin-top: 32px;
-    font-size: 0.95rem;
-    color: var(--accent);
-}
-
-.footer-email a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
-    transition: opacity 0.2s ease;
-}
-
-.footer-email a:hover {
-    opacity: 0.6;
-}
 
         .inline-link {
             border-bottom-width: 1px;
@@ -164,17 +137,92 @@
         .btn:hover,
         .inline-link:hover {
             opacity: 0.6;
+            transform: translateY(-1px);
         }
+
+        .footer-divider {
+            width: 48px;
+            height: 1px;
+            background: var(--border);
+            margin: 80px auto 0;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-email {
+            margin-top: 32px;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        .footer-email a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-email a:hover {
+            opacity: 0.6;
+        }
+
+        .last-updated {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            opacity: 0.65;
+        }
+
         @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes sectionFade {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 56px 22px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .about-text p {
+                font-size: 1.08rem;
+            }
+        }
     </style>
 </head>
 
@@ -191,7 +239,6 @@
         <h2>My Story</h2>
 
         <div class="about-text">
-
             <p>
                 I work best at the intersection of technical products, enterprise customers, and new markets.
             </p>
@@ -213,58 +260,62 @@
             </p>
 
             <p>
-                Some of that journey is mapped here: <a href="/map.html" class="inline-link">Travel Map</a>.
+                Some of that journey is mapped here: <a href="/map.html" class="inline-link">Where I've Been</a>.
             </p>
-
         </div>
     </section>
 
     <section>
-    <h2>How I Think</h2>
+        <h2>How I Think</h2>
 
-    <div class="pillars">
+        <div class="pillars">
+            <div class="pillar-item">
+                <h3>Systems First</h3>
+                <p>
+                    I like understanding how things actually work, whether it is a technical architecture, a customer organization, or a go-to-market motion.
+                </p>
+            </div>
 
-        <div class="pillar-item">
-            <h3>Systems First</h3>
-            <p>
-                I like understanding how things actually work, whether it is a technical architecture, a customer organization, or a go-to-market motion.
-            </p>
+            <div class="pillar-item">
+                <h3>Market Building</h3>
+                <p>
+                    I have spent a lot of my career helping technical companies establish and grow in new markets, especially across APAC.
+                </p>
+            </div>
+
+            <div class="pillar-item">
+                <h3>Technical Translation</h3>
+                <p>
+                    I’m comfortable with engineering teams, but I care most about turning technical value into something customers can understand and act on.
+                </p>
+            </div>
         </div>
-
-        <div class="pillar-item">
-            <h3>Market Building</h3>
-            <p>
-                I have spent a lot of my career helping technical companies establish and grow in new markets, especially across APAC.
-            </p>
-        </div>
-
-        <div class="pillar-item">
-            <h3>Technical Translation</h3>
-            <p>
-                I’m comfortable with engineering teams, but I care most about turning technical value into something customers can understand and act on.
-            </p>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     <section>
         <h2>Field Notes</h2>
 
         <p class="field-notes">
             When I'm not in the field, I'm usually tinkering with systems, designing parts in <b>Fusion 360</b>, optimizing my home <b>NAS environment</b>, learning <b>GMRS radio</b>, running along the coast, cooking, or practicing various <b>breathwork</b> techniques.
+        </p>
     </section>
 
- <footer>
-    <div class="links">
-        <a href="https://linkedin.com/in/YOUR-PROFILE" class="btn">LinkedIn</a>
-        <a href="/map.html" class="btn">Where I've Been</a>
-    </div>
+    <div class="footer-divider"></div>
 
-    <p class="footer-email">
-        <a href="mailto:paultop@aol.com">paultop@aol.com</a>
-    </p>
-</footer>
+    <footer>
+        <div class="links">
+            <a href="https://linkedin.com/in/paultop4" class="btn">LinkedIn</a>
+            <a href="/map.html" class="btn">Where I've Been</a>
+        </div>
+
+        <p class="footer-email">
+            <a href="mailto:paultop@aol.com">paultop@aol.com</a>
+        </p>
+
+        <p class="last-updated">
+            Updated May 2026
+        </p>
+    </footer>
 
 </body>
 </html>
