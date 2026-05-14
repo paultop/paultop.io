@@ -17,10 +17,10 @@
             --pulse-color: rgba(63, 177, 206, 0.7);
         }
 
-        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; }
+        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; overflow: hidden; background: #0b0b19; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
-        /* Pulsing Marker for pins WITH photos */
+        /* Custom Pulse Marker */
         .pulse-marker {
             width: 15px;
             height: 15px;
@@ -38,7 +38,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 177, 206, 0); }
         }
 
-        /* Standard Popup Styles */
         .mapboxgl-popup-content {
             max-width: 280px;
             padding: 16px;
@@ -80,28 +79,29 @@
             'star-intensity': 0.6
         });
 
-        locations.forEach(loc => {
-            let marker;
-            
-            const popupContent = `
-                <h3>${loc.name}</h3>
-                ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
-                ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
-            `;
+        // The "Fix": We wait a brief moment for the globe to stabilize before adding markers
+        setTimeout(() => {
+            locations.forEach(loc => {
+                let marker;
+                const popupContent = `
+                    <h3>${loc.name}</h3>
+                    ${loc.img ? `<img src="${loc.img}" class="popup-img" onerror="this.style.display='none'">` : ''}
+                    ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
+                `;
 
-            // THE LOGIC: If there is an image, use the pulse. If not, use static.
-            if (loc.img && loc.img !== "") {
-                const el = document.createElement('div');
-                el.className = 'pulse-marker';
-                marker = new mapboxgl.Marker(el);
-            } else {
-                marker = new mapboxgl.Marker({ color: '#3FB1CE' });
-            }
+                if (loc.img && loc.img !== "") {
+                    const el = document.createElement('div');
+                    el.className = 'pulse-marker';
+                    marker = new mapboxgl.Marker(el);
+                } else {
+                    marker = new mapboxgl.Marker({ color: '#3FB1CE' });
+                }
 
-            marker.setLngLat(loc.coords)
-                .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
-                .addTo(map);
-        });
+                marker.setLngLat(loc.coords)
+                    .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
+                    .addTo(map);
+            });
+        }, 500); 
     });
 </script>
 </body>
