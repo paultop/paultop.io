@@ -2,42 +2,71 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>My Professional Journey</title>
+    <title>Places I've Been | Paul Thompson</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    
     <style>
         body { margin: 0; padding: 0; }
         #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+        /* Styling for the photos inside the map popups */
+        .mapboxgl-popup-content {
+            max-width: 250px;
+            font-family: 'Inter', sans-serif;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .popup-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        .popup-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
     </style>
 </head>
 <body>
 <div id="map"></div>
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoicGF1bHRvcCIsImEiOiJjbXA0bHI4M2QwYjZtMnlvbHpkdHl3cW5zIn0.vhAhlNS5-wtjkNsboEPnMA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGF1bHRvcCIsImEiOiJjbXA0bHI4M2QwYjZtMnlvbHpkdHl3cW5zIn0.vhAhlNS5-wtjkNsboEPnMA';
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/satellite-streets-v12', // You can change this to 'dark-v11' for a minimalist look
-        projection: 'globe', // This creates the 3D effect
+        style: 'mapbox://styles/mapbox/satellite-streets-v12',
+        projection: 'globe',
         zoom: 1.5,
         center: [0, 20]
     });
 
     map.on('style.load', () => {
         map.setFog({
-            color: 'rgb(186, 210, 247)', // Lower atmosphere
-            'high-color': 'rgb(36, 92, 223)', // Upper atmosphere
-            'horizon-blend': 0.02, // Atmosphere thickness
-            'space-color': 'rgb(11, 11, 25)', // Background color
-            'star-intensity': 0.6 // Brightness of stars
+            color: 'rgb(186, 210, 247)',
+            'high-color': 'rgb(36, 92, 223)',
+            'horizon-blend': 0.02,
+            'space-color': 'rgb(11, 11, 25)',
+            'star-intensity': 0.6
         });
     });
 
-    // Your Professional Locations
     const locations = [
         // --- AUSTRALIA & NZ ---
-        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base." },
-        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpg", description: "" },
+        { name: "Sydney, Australia", coords: [151.2093, -33.8688], img: "images/sydney.jpg", description: "The 7-year home base for APAC expansion." },
+        { name: "Bondi Beach, Australia", coords: [151.2743, -33.8915], img: "images/wedding.jpeg", description: "Established regional presence and GTM strategy." },
         { name: "Melbourne, Australia", coords: [144.9631, -37.8136], img: "images/melbourne.jpg", description: "" },
         { name: "Byron Bay, Australia", coords: [153.6126, -28.6431], img: "images/byron.jpg", description: "" },
         { name: "Gold Coast, Australia", coords: [153.4309, -28.0167], img: "images/goldcoast.jpg", description: "" },
@@ -84,15 +113,21 @@
         { name: "Mexico City, Mexico", coords: [-99.1332, 19.4326], img: "images/mexicocity.jpg", description: "" },
         { name: "Nassau, Bahamas", coords: [-77.3450, 25.0443], img: "images/nassau.jpg", description: "" },
         { name: "Banff, Canada", coords: [-115.5708, 51.1784], img: "images/banff.jpg", description: "" },
-        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "The current home chapter." },
-        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Roots." }
+        { name: "San Francisco", coords: [-122.4194, 37.7749], img: "images/sf.jpg", description: "Current chapter: Tech GTM in the heart of AI." },
+        { name: "Oak Park/Chicago", coords: [-87.7845, 41.8850], img: "images/chicago.jpg", description: "Raised in Oak Park." }
     ]; 
 
-    // Add Pins
+    // Add Pins with Photos in Popups
     locations.forEach(loc => {
+        const popupContent = `
+            <h3>${loc.name}</h3>
+            ${loc.img ? `<img src="${loc.img}" class="popup-img">` : ''}
+            ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
+        `;
+
         new mapboxgl.Marker({ color: '#3FB1CE' })
             .setLngLat(loc.coords)
-            .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${loc.name}</h3>`))
+            .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent))
             .addTo(map);
     });
 </script>
