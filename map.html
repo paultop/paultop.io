@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N9MQM35FFS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N9MQM35FFS');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9MQM35FFS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N9MQM35FFS');
+    </script>
 
     <meta charset="utf-8">
     <title>Professional Journey | Paul Thompson</title>
@@ -49,7 +47,7 @@
         }
 
         h3 { margin: 0 0 8px 0; font-size: 1.1rem; font-weight: 800; color: #111; }
-        .popup-img { width: 100%; height: auto; border-radius: 6px; margin-top: 8px; border: 1px solid #eee; }
+        .popup-img { width: 100%; height: auto; border-radius: 6px; margin-top: 8px; border: 1px solid #eee; display: block; }
         .popup-desc { font-size: 0.9rem; color: #666; margin-top: 12px; line-height: 1.5; font-style: italic; }
     </style>
 </head>
@@ -79,7 +77,12 @@
         { name: "Great Barrier Reef", coords: [147.6992, -18.2871] },
         { name: "Kiama, NSW", coords: [150.8541, -34.6713] },
         { name: "Perth, Australia", coords: [115.8605, -31.9505] },
-        { name: "Rottnest Island, Australia", coords: [115.5118, -32.0062] },
+        { 
+            name: "Rottnest Island, Australia", 
+            coords: [115.5118, -32.0062], 
+            images: ["images/rottnest1_w1.jpg", "images/rottnest2_w1.jpg"],
+            description: "Quokkas and coastlines."
+        },
         { name: "Queenstown, NZ", coords: [168.6626, -45.0312] },
         { name: "Fiordland National Park", coords: [167.7181, -45.4144] },
         { name: "Wellington, NZ", coords: [174.7762, -41.2865] },
@@ -124,13 +127,23 @@
         });
 
         locations.forEach(loc => {
+            // Handle both single 'img' and multiple 'images' array
+            let imagesHtml = '';
+            if (loc.images) {
+                imagesHtml = loc.images.map(src => `<img src="${src}" class="popup-img">`).join('');
+            } else if (loc.img) {
+                imagesHtml = `<img src="${loc.img}" class="popup-img">`;
+            }
+
             const popupContent = `
                 <h3>${loc.name}</h3>
-                ${loc.img ? `<img src="${loc.img}" class="popup-img">` : ''}
+                ${imagesHtml}
                 ${loc.description ? `<p class="popup-desc">${loc.description}</p>` : ''}
             `;
 
-            if (loc.img && loc.img !== "") {
+            const hasImages = (loc.img && loc.img !== "") || (loc.images && loc.images.length > 0);
+
+            if (hasImages) {
                 const el = document.createElement('div');
                 el.className = 'pulse-marker';
                 new mapboxgl.Marker({ element: el, anchor: 'center' })
