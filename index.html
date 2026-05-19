@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9MQM35FFS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,25 +14,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags -->
     <title>Paul Thompson | Technical GTM</title>
     <meta name="title" content="Paul Thompson | Technical GTM">
     <meta name="description" content="Engineer-minded enterprise seller focused on technical products, data systems, and new markets.">
 
-    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://paultop.io/">
     <meta property="og:title" content="Paul Thompson | Technical GTM">
     <meta property="og:description" content="Engineer-minded enterprise seller focused on technical products, data systems, and new markets.">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary">
     <meta property="twitter:url" content="https://paultop.io/">
     <meta property="twitter:title" content="Paul Thompson | Technical GTM">
     <meta property="twitter:description" content="Engineer-minded enterprise seller focused on technical products, data systems, and new markets.">
 
-  <!-- Favicon -->
-<link rel="icon" type="image/png" href="/paulfavicon.png?v=3">
+  <link rel="icon" type="image/png" href="/paulfavicon.png?v=3">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -63,8 +58,17 @@
             animation: fadeIn 0.6s ease-in;
         }
 
+        /* Flex Container for Title and Owl Mascot */
         header {
             margin-bottom: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .header-text {
+            flex: 1;
         }
 
         h1 {
@@ -79,6 +83,20 @@
             font-size: 1.2rem;
             color: var(--accent);
             margin-top: 10px;
+        }
+
+        /* Owl Mascot Component Rules */
+        .header-owl {
+            height: 58px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.35; /* Blends the black silhouette smoothly into your --accent typography color */
+            margin-top: 4px; /* Pulls alignment down to hit the baseline top of the text perfectly */
+            transition: opacity 0.25s ease;
+        }
+
+        header:hover .header-owl {
+            opacity: 0.8; /* Subtle interaction flash when hovering the header region */
         }
 
         section {
@@ -146,11 +164,11 @@
 
 
         .field-notes {
-    color: #444444;
-    font-size: 1.18rem;
-    line-height: 1.8;
-    max-width: 640px;
-}
+            color: #444444;
+            font-size: 1.18rem;
+            line-height: 1.8;
+            max-width: 640px;
+        }
 
         .btn,
         .inline-link {
@@ -244,6 +262,12 @@
                 padding: 56px 22px;
             }
 
+            header {
+                flex-direction: column-reverse; /* Flows element stacks elegantly for single column tracking */
+                gap: 1rem;
+                margin-bottom: 48px;
+            }
+
             h1 {
                 font-size: 2.5rem;
             }
@@ -256,6 +280,11 @@
             .field-notes {
                 font-size: 1.08rem;
             }
+
+            .header-owl {
+                height: 48px;
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
@@ -263,10 +292,13 @@
 <body>
 
     <header>
-        <h1>I'M PAUL</h1>
-        <p class="tagline">
-            Engineer-minded enterprise seller. Built markets for technical products.
-        </p>
+        <div class="header-text">
+            <h1>I'M PAUL</h1>
+            <p class="tagline">
+                Engineer-minded enterprise seller. Built markets for technical products.
+            </p>
+        </div>
+        <img src="owl.png" alt="Owl Mascot" class="header-owl">
     </header>
 
     <section>
@@ -274,38 +306,38 @@
 
         <div class="about-text">
             <p>
-<p>
-    I work best at the intersection of <strong>technical products</strong>,
-    <strong>new market expansion</strong>, and <strong>ambitious teams</strong>.
-  </p>
+                I work best at the intersection of <strong>technical products</strong>,
+                <strong>new market expansion</strong>, and <strong>ambitious teams</strong>.
+            </p>
 
-  <p>
-    I was born in Chicago and started my career in mechanical engineering and
-    manufacturing, where I learned to think in systems, constraints, and root
-    causes. That foundation eventually pulled me to San Francisco, where I found
-    I could help <strong>technical teams and business leaders</strong> understand
-    each other.
-  </p>
+            <p>
+                I was born in Chicago and started my career in mechanical engineering and
+                manufacturing, where I learned to think in systems, constraints, and root
+                causes. That foundation eventually pulled me to San Francisco, where I found
+                I could help <strong>technical teams and business leaders</strong> understand
+                each other.
+            </p>
 
-  <p>
-    In 2017, I joined the early team at <strong>Confluent</strong>, then moved to
-    Sydney to help build and grow the <strong>APAC market</strong>. Over the next
-    seven years, I worked across Australia’s enterprise landscape, helping
-    customers adopt complex data infrastructure, testing, and software delivery
-    platforms.
-  </p>
+            <p>
+                In 2017, I joined the early team at <strong>Confluent</strong>, then moved to
+                Sydney to help build and grow the <strong>APAC market</strong>. Over the next
+                seven years, I worked across Australia’s enterprise landscape, helping
+                customers adopt complex data infrastructure, testing, and software delivery
+                platforms.
+            </p>
 
-  <p>
-    The common thread has been simple: understand technical products,
-    <strong>simplify complexity</strong>, and help customers turn engineering
-    capability into <strong>real-world adoption and business value</strong>.
-  </p>
+            <p>
+                The common thread has been simple: understand technical products,
+                <strong>simplify complexity</strong>, and help customers turn engineering
+                capability into <strong>real-world adoption and business value</strong>.
+            </p>
 
-  <p>
-    I’m now focused on <strong>AI infrastructure</strong>,
-    <strong>data systems</strong>, and technical products with strong engineering
-    cultures as I return to <strong>San Francisco</strong>.
-  </p>
+            <p>
+                I’m now focused on <strong>AI infrastructure</strong>,
+                <strong>data systems</strong>, and technical products with strong engineering
+                cultures as I return to <strong>San Francisco</strong>.
+            </p>
+            
             <p>
                 Check out <a href="/map.html" class="inline-link">Where I've Been</a>.
             </p>
@@ -366,3 +398,4 @@
 
 </body>
 </html>
+
