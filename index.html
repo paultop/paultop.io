@@ -225,6 +225,26 @@
             opacity: 0.6;
         }
 
+        .footer-owl-container {
+            margin-top: 24px;
+            height: 40px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-owl {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .footer-owl.reveal {
+            opacity: 0.45;
+        }
+
         .last-updated {
             margin-top: 16px;
             font-size: 0.8rem;
@@ -388,10 +408,29 @@
             <a href="mailto:paultop@aol.com">paultop@aol.com</a>
         </p>
 
+        <div class="footer-owl-container">
+            <img src="owl.png" alt="Skeptical Owl Mascot" class="footer-owl" id="observingOwl">
+        </div>
+
         <p class="last-updated">
             Updated May 2026
         </p>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        document.getElementById('observingOwl').classList.add('reveal');
+                    }, 2500); 
+                    observer.disconnect(); 
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.querySelector('footer'));
+    </script>
 
 </body>
 </html>
