@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9MQM35FFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N9MQM35FFS');
+</script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d2e73e6-5d7a-4c16-8374-2ea37e17909b"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Thompson | GTM Prototype</title>
+    <style>
+        :root {
+            --bg-dark: #06090e;
+            --container-bg: #0d1117;
+            --border-color: #21262d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-green: #238636;
+            --accent-green-hover: #2ea44f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Top Header Split Layout with Branding Watermark */
+        .global-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-titles h1 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .header-titles p {
+            margin: 5px 0 0 0;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .header-logo img {
+            width: 24px;
+            height: auto;
+            opacity: 0.9;
+            display: block;
+        }
+
+        /* Hero Canvas Section */
+        #hero-section {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            height: 75vh;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        #play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(6, 9, 14, 0.99);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: opacity 0.6s ease;
+        }
+
+        /* Interaction Action Trigger */
+        #play-button {
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(35, 134, 54, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        #play-button:hover {
+            background-color: var(--accent-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(46, 164, 79, 0.3);
+        }
+
+        .instructions {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            z-index: 5;
+            text-transform: uppercase;
+        }
+
+        /* Case Study Layout Split */
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Two-column dashboard narrative layout */
+        .narrative-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .narrative-split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-left: 3px solid #58a6ff;
+            padding-left: 12px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        /* Authentic sales belief statement highlight */
+        blockquote {
+            margin: 30px 0 0 0;
+            padding: 15px 20px;
+            background-color: var(--container-bg);
+            border-left: 4px solid #238636;
+            border-radius: 0 8px 8px 0;
+            font-style: normal;
+            color: #ffffff;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        /* Dashboard Verification Image Container */
+        .dashboard-container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .dashboard-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            border: 1px solid #30363d;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease;
+        }
+
+        .dashboard-container img:hover {
+            opacity: 0.85;
+        }
+
+        .dashboard-caption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            text-align: center;
+            letter-spacing: 0.02em;
+        }
+
+        /* Fullscreen Lightbox Overlay Styling */
+        .image-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(6, 9, 14, 0.95);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out;
+        }
+
+        .image-lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ROI Metric Cards */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .metric-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #58a6ff;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Compact, Single-Row Horizontal Progress Grid */
+        .iteration-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 800px) {
+            .iteration-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .iteration-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .iteration-card video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #000;
+        }
+
+        .iteration-title {
+            padding: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        /* Code Accordion */
+        .accordion-btn {
+            background-color: var(--container-bg);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            padding: 16px;
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-btn:hover {
+            background-color: #161b22;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #010409;
+            border-radius: 0 0 8px 8px;
+        }
+
+        pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            color: #ff7b72;
+            line-height: 1.4;
+        }
+
+        /* Unified Site Footer Styling */
+        .site-footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0 auto 30px auto;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+        .footer-email {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(139, 148, 158, 0.3);
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 1px;
+        }
+        .footer-email:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        .footer-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        #video-element, #audio-element {
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- Header Branding Layout Featuring Upper Right Owl Watermark -->
+    <div class="global-header">
+        <div class="header-titles">
+            <h1>Paul Thompson</h1>
+            <p>Built with Modal // GTM Prototype</p>
+        </div>
+        <div class="header-logo">
+            <img src="owl-white.png" alt="Owl Logo">
+        </div>
+    </div>
+
+    <!-- 1. HERO SHOWCASE CANVAS BOX -->
+    <div id="hero-section">
+        <div id="play-overlay">
+            <button id="play-button">Launch Alec’s interactive 3D video</button>
+        </div>
+        <div class="instructions">Move mouse to orbit 3D space</div>
+        <div id="canvas-container"></div>
+    </div>
+
+    <!-- Master Web-ready Audio/Video streaming engines -->
+    <video id="video-element" src="web_hologram.mp4?v=2" muted playsinline crossorigin="anonymous"></video>
+    <audio id="audio-element" src="pitch_audio.m4a?v=2" crossorigin="anonymous"></audio>
+
+    <!-- Fullscreen Pop-up Box Layout -->
+    <div class="image-lightbox" id="lightbox" onclick="closeZoom()">
+        <img src="modal_billing_dashboard.png?v=2" alt="Expanded Verification View">
+    </div>
+
+    <!-- 2. VALUE-DRIVEN NARRATIVE SPLIT -->
+    <div class="content-container">
+        
+        <h2>Why Modal matters here</h2>
+        
+        <div class="narrative-split">
+            <!-- Left Column: Economic Value Narrative -->
+            <div class="narrative-text">
+                <p>This prototype is intentionally rough. The point is not a perfect render. The point is the workflow: raw video in, serverless GPU inference, spatial asset out.
+
+                <p>Workloads like this are bursty by nature. I do not need a GPU running all day. I need fast access to compute, a clean Python environment, and the ability to scale back to zero when the job is done.
+
+                <p>Modal made this very simple... Just package the environment, spin up an NVIDIA A10G, run Depth Anything V2 over the clip, export the WebGL-ready assets, and pay only for execution time.
+                
+                    <p>A 55-second clip processed in under a minute for only <strong>$0.23</strong>. This is the real value. Real compute when I need it, zero idle GPU spend when I don't., </p>
+            </div>
+            
+            <!-- Right Column: Verification Ledger & Real-time Metrics -->
+            <div class="narrative-aside">
+                <div class="dashboard-container">
+                    <img src="modal_billing_dashboard.png?v=2" alt="Modal Usage and Billing Dashboard Verification" onclick="openZoom()">
+                    <div class="dashboard-caption">Figure 1.0 — Real-time live usage ledger pulled straight from the Modal hPanel project console. (Click to expand)</div>
+                </div>
+
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">$0.23</div>
+                        <div class="metric-label">Compute Cost</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">~55s</div>
+                        <div class="metric-label">Pipeline Speed</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$0</div>
+                        <div class="metric-label">Idle GPU Spend</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">Scale to zero</div>
+                        <div class="metric-label">Infrastructure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Crisp professional sales belief core highlight -->
+        <blockquote>
+            This is the sales motion I believe in: understand the technical workflow, find the economic pain, and explain the value in a way engineering and business leaders both respect.
+        </blockquote>
+
+        <!-- Build Evolution Section -->
+        <h2 style="margin-top: 50px;">How the prototype came together</h2>
+        <div class="iteration-grid">
+            <div class="iteration-card">
+                <video src="try5.mp4?v=2" autoplay loop muted playsinline></video>
+                <div class="iteration-title">1. Monocular Depth</div>
+            </div>
+            <div class="iteration-card">
+                <video src="try2.mp4?v=2" autoplay loop muted playsinline></video>
+                <div class="iteration-title">2. Mesh Extrusion</div>
+            </div>
+            <div class="iteration-card">
+                <video src="try3.mp4?v=2" autoplay loop muted playsinline></video>
+                <div class="iteration-title">3. WebGL Edge Fix</div>
+            </div>
+            <div class="iteration-card">
+                <video src="try4.mp4?v=2" autoplay loop muted playsinline></video>
+                <div class="iteration-title">4. Camera Calibration</div>
+            </div>
+        </div>
+
+        <!-- Pipeline Architecture Dropdown -->
+        <h2>Pipeline Architecture</h2>
+        <button class="accordion-btn" onclick="toggleAccordion()">
+            <span>[+] View the Modal pipeline</span>
+            <span id="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-content" id="accordion-panel">
+<pre><code>import os
+import sys
+from modal import Image, App
+
+cuda_image = (
+    Image.debian_slim(python_version="3.10")
+    .apt_install("libgl1", "libglib2.0-0", "git", "ffmpeg")
+    .pip_install(
+        "numpy==1.26.4",
+        "opencv-python-headless==4.8.1.78",
+        "torch==2.1.2",
+        "torchvision==0.16.2",
+        "huggingface_hub",
+        "safetensors",
+        "pillow"
+    )
+    .run_commands(
+        "git clone https://github.com/DepthAnything/Depth-Anything-V2.git /root/Depth-Anything-V2"
+    )
+)
+
+app = App("video-depth-pipeline", image=cuda_image)
+
+@app.function(
+    gpu="A10G",              
+    timeout=600,             
+)
+def process_video_depth(video_bytes: bytes) -> bytes:
+    import cv2
+    import torch
+    import numpy as np
+    
+    sys.path.append('/root/Depth-Anything-V2')
+    from depth_anything_v2.dpt import DepthAnythingV2
+
+    input_path = "input_temp.mp4"
+    temp_output_path = "raw_output.mp4"
+    final_output_path = "web_ready_output.mp4"
+    
+    with open(input_path, "wb") as f:
+        f.write(video_bytes)
+
+    print("⏳ Loading Depth-Anything-V2-Small weights onto GPU...")
+    from huggingface_hub import hf_hub_download
+    model_path = hf_hub_download(repo_id="depth-anything/Depth-Anything-V2-Small", filename="depth_anything_v2_vits.pth")
+    
+    model_configs = {'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]}}
+    depth_anything = DepthAnythingV2(**model_configs['vits'])
+    depth_anything.load_state_dict(torch.load(model_path, map_location='cpu'))
+    depth_anything = depth_anything.to("cuda").eval()
+
+    cap = cv2.VideoCapture(input_path)
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    out_width = width * 2
+    
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(temp_output_path, fourcc, fps, (out_width, height))
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+            
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        with torch.no_grad():
+            depth = depth_anything.infer_image(frame_rgb)
+            
+        depth_normalized = ((depth - depth.min()) / (depth.max() - depth.min()) * 255).astype(np.uint8)
+        depth_bgr = cv2.cvtColor(depth_normalized, cv2.COLOR_GRAY2BGR)
+        side_by_side = np.hstack((frame, depth_bgr))
+        out.write(side_by_side)
+
+    cap.release()
+    out.release()
+    
+    print("🛠️ Executing container level FFmpeg transcode...")
+    ffmpeg_cmd = f"ffmpeg -y -i {temp_output_path} -vcodec libx264 -pix_fmt yuv420p {final_output_path}"
+    os.system(ffmpeg_cmd)
+
+    with open(final_output_path, "rb") as f:
+        return f.read()</code></pre>
+        </div>
+
+        <!-- Navigation Footer Matrix -->
+        <div class="site-footer">
+            <div class="footer-divider"></div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="https://www.linkedin.com/in/paultop4/" target="_blank">LinkedIn</a>
+                <a href="../map.html">Where I've Been</a>
+                <img src="../owl.png?v=2" alt="Owl Logo" style="width: 24px; height: auto; margin-left: -5px; vertical-align: middle; opacity: 0.8;">
+            </div>
+            <a href="mailto:paultop@aol.com" class="footer-email">paultop@aol.com</a>
+            <div class="footer-date">Updated May 2026</div>
+        </div>
+
+    </div>
+
+    <!-- 3. GRAPHICS ENGINE & APPLICATION INTERACTION LOGIC -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        function openZoom() { lightbox.classList.add('active'); }
+        function closeZoom() { lightbox.classList.remove('active'); }
+
+        function toggleAccordion() {
+            const panel = document.getElementById("accordion-panel");
+            const arrow = document.getElementById("accordion-arrow");
+            if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+                panel.style.maxHeight = "0px";
+                arrow.textContent = "▼";
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                arrow.textContent = "▲";
+            }
+        }
+
+        const container = document.getElementById('canvas-container');
+        const overlay = document.getElementById('play-overlay');
+        const video = document.getElementById('video-element');
+        const audio = document.getElementById('audio-element');
+        
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(40, window.innerWidth / (window.innerWidth > 1100 ? 1100 : window.innerWidth), 0.1, 100);
+        camera.position.set(0, -0.2, 4.5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        
+        function updateRendererSize() {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            renderer.setSize(w, h);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        }
+        container.appendChild(renderer.domElement);
+        updateRendererSize();
+
+        const videoTexture = new THREE.VideoTexture(video);
+        videoTexture.minFilter = THREE.LinearFilter;
+        videoTexture.magFilter = THREE.LinearFilter;
+        videoTexture.format = THREE.RGBAFormat;
+
+        const cleanMeshMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                map: { value: videoTexture },
+                displacementScale: { value: 0.85 },
+                depthThreshold: { value: 0.20 },
+                edgeCutoff: { value: 0.06 }
+            },
+            vertexShader: `
+                uniform sampler2D map;
+                uniform float displacementScale;
+                uniform float depthThreshold;
+                uniform float edgeCutoff;
+                varying vec2 vUv;
+                varying float vAlpha;
+
+                void main() {
+                    vUv = uv;
+                    vec2 depthUv = vec2(0.5 + (uv.x * 0.5), uv.y);
+                    float depth = texture2D(map, depthUv).r;
+
+                    float sampleStep = 1.0 / 512.0;
+                    float depthRight = texture2D(map, depthUv + vec2(sampleStep, 0.0)).r;
+                    float depthUp    = texture2D(map, depthUv + vec2(0.0, sampleStep)).r;
+                    
+                    float deltaH = abs(depth - depthRight);
+                    float deltaV = abs(depth - depthUp);
+
+                    if (depth < depthThreshold || deltaH > edgeCutoff || deltaV > edgeCutoff || uv.x < 0.02 || uv.x > 0.98) {
+                        vAlpha = 0.0;
+                    } else {
+                        vAlpha = 1.0;
+                    }
+
+                    vec3 newPosition = position + normal * (depth * displacementScale);
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform sampler2D map;
+                varying vec2 vUv;
+                varying float vAlpha;
+
+                void main() {
+                    if (vAlpha < 0.5) { discard; }
+                    vec2 colorUv = vec2(vUv.x * 0.5, vUv.y);
+                    gl_FragColor = texture2D(map, colorUv);
+                }
+            `,
+            side: THREE.DoubleSide
+        });
+
+        const geometry = new THREE.PlaneGeometry(1.8, 2.4, 512, 512);
+        const hologramMesh = new THREE.Mesh(geometry, cleanMeshMaterial);
+        scene.add(hologramMesh);
+
+        overlay.addEventListener('click', () => {
+            overlay.style.opacity = 0;
+            setTimeout(() => overlay.remove(), 600);
+            video.play().catch(err => console.error(err));
+            audio.play().catch(err => console.error(err));
+        });
+
+        let targetX = 0; let targetY = 0;
+        document.addEventListener('mousemove', (event) => {
+            const rect = container.getBoundingClientRect();
+            if(event.clientY >= rect.top && event.clientY <= rect.bottom) {
+                const halfW = rect.width / 2;
+                const halfH = rect.height / 2;
+                targetX = (event.clientX - (rect.left + halfW)) / halfW;
+                targetY = (event.clientY - (rect.top + halfH)) / halfH;
+            }
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            videoTexture.needsUpdate = true;
+            hologramMesh.rotation.y += (targetX * 0.45 - hologramMesh.rotation.y) * 0.05;
+            hologramMesh.rotation.x += (targetY * 0.25 - hologramMesh.rotation.x) * 0.05;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', updateRendererSize);
+    </script>
+</body>
+</html>
