@@ -146,7 +146,7 @@
         /* Two-column dashboard narrative layout */
         .narrative-split {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 40px;
             align-items: start;
         }
@@ -189,12 +189,24 @@
             font-size: 1.05rem;
         }
 
-        /* Dashboard Verification Image Container */
+        /* Dual Dashboard Layout Styles */
+        .ledger-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dashboard-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
         .dashboard-container {
             background-color: var(--container-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
@@ -213,11 +225,12 @@
         }
 
         .dashboard-caption {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 12px;
+            margin-top: 10px;
             text-align: center;
             letter-spacing: 0.02em;
+            line-height: 1.3;
         }
 
         /* Fullscreen Lightbox Overlay Styling */
@@ -256,7 +269,6 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-top: 25px;
         }
 
         .metric-card {
@@ -422,7 +434,6 @@
 </head>
 <body>
 
-    <!-- Header Branding Layout Featuring Upper Right Owl Watermark -->
     <div class="global-header">
         <div class="header-titles">
             <h1>Paul Thompson</h1>
@@ -433,7 +444,6 @@
         </div>
     </div>
 
-    <!-- 1. HERO SHOWCASE CANVAS BOX -->
     <div id="hero-section">
         <div id="play-overlay">
             <button id="play-button">Play Justin’s interactive 3D video</button>
@@ -442,66 +452,67 @@
         <div id="canvas-container"></div>
     </div>
 
-    <!-- Master Web-ready Audio/Video streaming engines -->
     <video id="video-element" src="web_hologram.mp4?v=2" muted playsinline crossorigin="anonymous"></video>
     <audio id="audio-element" src="pitch_audio.m4a?v=2" crossorigin="anonymous"></audio>
 
-    <!-- Fullscreen Pop-up Box Layout -->
     <div class="image-lightbox" id="lightbox" onclick="closeZoom()">
-        <img src="modal_billing_dashboard.png?v=2" alt="Expanded Verification View">
+        <img id="lightbox-img" src="" alt="Expanded Verification View">
     </div>
 
-    <!-- 2. VALUE-DRIVEN NARRATIVE SPLIT -->
     <div class="content-container">
         
         <h2>Why Modal matters here</h2>
         
         <div class="narrative-split">
-            <!-- Left Column: Economic Value Narrative -->
             <div class="narrative-text">
-                <p>This prototype is intentionally rough. The point is not a perfect render. The point is the workflow: raw video in, serverless GPU inference, spatial asset out.
+                <p>This prototype is intentionally rough. The point is not a perfect render. The point is the workflow: raw video in, serverless GPU inference, spatial asset out.</p>
 
-                <p>Workloads like this are bursty by nature. I do not need a GPU running all day. I need fast access to compute, a clean Python environment, and the ability to scale back to zero when the job is done.
+                <p>Workloads like this are bursty by nature. I do not need a GPU running all day. I need fast access to compute, a clean Python environment, and the ability to scale back to zero when the job is done.</p>
 
-                <p>Modal made this very simple... Just package the environment, spin up an NVIDIA A10G, run Depth Anything V2 over the clip, export the WebGL-ready assets, and pay only for execution time.
+                <p>Modal made this very simple... Just package the environment, spin up an NVIDIA A10G, run Depth Anything V2 over the clip, export the WebGL-ready assets, and pay only for execution time.</p>
                 
-                    <p>A 55-second clip processed in under a minute for only <strong>$0.23</strong>. This is the real value. Real compute when I need it, zero idle GPU spend when I don't., </p>
+                <p>A 55-second clip processed with a <strong>2.84s</strong> cold start in just <strong>3m 35s</strong> for only <strong>$0.23</strong>. This is the real value. Real compute when I need it, zero idle GPU spend when I don't.</p>
             </div>
             
-            <!-- Right Column: Verification Ledger & Real-time Metrics -->
             <div class="narrative-aside">
-                <div class="dashboard-container">
-                    <img src="modal_billing_dashboard.png?v=2" alt="Modal Usage and Billing Dashboard Verification" onclick="openZoom()">
-                    <div class="dashboard-caption">Figure 1.0 — Real-time live usage ledger pulled straight from the Modal console. (Click to expand)</div>
-                </div>
+                <div class="ledger-box">
+                    <div class="dashboard-row">
+                        <div class="dashboard-container">
+                            <img src="modal_run.png?v=2" alt="Modal Run Dashboard Verification" onclick="openZoom(this.src)">
+                            <div class="dashboard-caption">Figure 1.0 — Execution lifecycle, tracking the container's 2.84s cold start.</div>
+                        </div>
+                        <div class="dashboard-container">
+                            <img src="modal_billing_dashboard.png?v=2" alt="Modal Usage and Billing Dashboard Verification" onclick="openZoom(this.src)">
+                            <div class="dashboard-caption">Figure 1.1 — Direct cost breakdown mapping the realized $0.23 total spend.</div>
+                        </div>
+                    </div>
 
-                <div class="metric-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">$0.23</div>
-                        <div class="metric-label">Compute Cost</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">~55s</div>
-                        <div class="metric-label">Pipeline Speed</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">$0</div>
-                        <div class="metric-label">Idle GPU Spend</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">Scale to zero</div>
-                        <div class="metric-label">Infrastructure</div>
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">$0.23</div>
+                            <div class="metric-label">Compute Cost</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">2.84s</div>
+                            <div class="metric-label">Cold Start Speed</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$0</div>
+                            <div class="metric-label">Idle GPU Spend</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">Scale to zero</div>
+                            <div class="metric-label">Infrastructure</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Crisp professional sales belief core highlight -->
-        <blockquote>
+        <blockquote style="margin-top: 40px;">
             This is the sales motion I believe in: understand the technical workflow, find the economic pain, and explain the value in a way engineering and business leaders both respect.
         </blockquote>
 
-        <!-- Build Evolution Section -->
         <h2 style="margin-top: 50px;">How the prototype came together</h2>
         <div class="iteration-grid">
             <div class="iteration-card">
@@ -522,7 +533,6 @@
             </div>
         </div>
 
-        <!-- Pipeline Architecture Dropdown -->
         <h2>Pipeline Architecture</h2>
         <button class="accordion-btn" onclick="toggleAccordion()">
             <span>[+] View the Modal pipeline</span>
@@ -614,7 +624,6 @@ def process_video_depth(video_bytes: bytes) -> bytes:
         return f.read()</code></pre>
         </div>
 
-        <!-- Navigation Footer Matrix -->
         <div class="site-footer">
             <div class="footer-divider"></div>
             <div class="footer-links">
@@ -629,10 +638,14 @@ def process_video_depth(video_bytes: bytes) -> bytes:
 
     </div>
 
-    <!-- 3. GRAPHICS ENGINE & APPLICATION INTERACTION LOGIC -->
     <script>
         const lightbox = document.getElementById('lightbox');
-        function openZoom() { lightbox.classList.add('active'); }
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        function openZoom(imageSrc) { 
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active'); 
+        }
         function closeZoom() { lightbox.classList.remove('active'); }
 
         function toggleAccordion() {
