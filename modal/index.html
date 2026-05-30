@@ -513,16 +513,6 @@
             This is the sales motion I believe in: understand the technical workflow, find the economic pain, and explain the value in a way engineering and business leaders both respect.
         </blockquote>
 
-<h2>Why not just run this on AWS?</h2>
-        <div style="max-width: 800px; margin-bottom: 40px;">
-            <p>You could run this on AWS, but the workflow quickly becomes an infrastructure management problem: picking the right GPU instance, packaging the model environment, configuring container startup, handling orchestration, and manually ensuring you avoid idle spend.</p>
-
-            <p>For this prototype, the value of Modal was the ability to treat an NVIDIA A10G like an on-demand function: spin up the container, execute batch inference, stream the assets, and scale instantly back to zero. A comparable AWS G5 instance uses the exact same A10G hardware, but the operator still inherits the burden of instance lifecycle management.</p>
-            
-            <p style="font-size: 1.15rem; font-weight: 600; color: #58a6ff; border-left: 2px solid #58a6ff; padding-left: 15px; margin-top: 25px;">
-                "I did not need a GPU server. I needed a GPU workflow."
-            </p>
-        </div>
 
         <h2 style="margin-top: 50px;">How the prototype came together</h2>
         <div class="iteration-grid">
