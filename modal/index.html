@@ -513,6 +513,40 @@
             This is the sales motion I believe in: understand the technical workflow, find the economic pain, and explain the value in a way engineering and business leaders both respect.
         </blockquote>
 
+        <h2>The Alternatives: Modal vs. AWS</h2>
+        <div style="overflow-x: auto; margin-bottom: 40px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--container-bg);">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--border-color); background-color: rgba(255,255,255,0.02);">
+                        <th style="padding: 15px;">Infrastructure Strategy</th>
+                        <th style="padding: 15px;">A10G GPU Support</th>
+                        <th style="padding: 15px;">Idle Cost Tax</th>
+                        <th style="padding: 15px;">Realized Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 600; color: #58a6ff;">Modal App Engine</td>
+                        <td style="padding: 15px; color: #56d364;">Native (On-demand container)</td>
+                        <td style="padding: 15px; color: #56d364;">$0.00 (Scales to absolute zero)</td>
+                        <td style="padding: 15px; font-weight: 600; color: #56d364;">$0.23 / run</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color); opacity: 0.7;">
+                        <td style="padding: 15px; font-weight: 600;">AWS Lambda</td>
+                        <td style="padding: 15px; color: #f78166;">Not Supported (CPU Only)</td>
+                        <td style="padding: 15px;">$0.00 (Scales to zero)</td>
+                        <td style="padding: 15px; color: #f78166;">Infeasible (Hits 15m timeout)</td>
+                    </tr>
+                    <tr style="opacity: 0.7;">
+                        <td style="padding: 15px; font-weight: 600;">AWS EC2 (g5.xlarge)</td>
+                        <td style="padding: 15px; color: #56d364;">Native Instance</td>
+                        <td style="padding: 15px; color: #f78166;">~$734.38 / month (Always-On)</td>
+                        <td style="padding: 15px; color: #f78166;">$24.14 / day (Even if completely idle)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h2 style="margin-top: 50px;">How the prototype came together</h2>
         <div class="iteration-grid">
             <div class="iteration-card">
