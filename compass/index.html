@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N9MQM35FFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N9MQM35FFS');
+</script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d2e73e6-5d7a-4c16-8374-2ea37e17909b"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compass: Deciding Which Startups Deserve Attention | Paul Thompson</title>
+    <meta name="title" content="Compass: Deciding Which Startups Deserve Attention | Paul Thompson">
+    <meta name="description" content="How I turned a messy company list into an evidence-backed system for deciding where to focus my job search.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paultop.io/compass/">
+    <meta property="og:title" content="Compass: Deciding Which Startups Deserve Attention">
+    <meta property="og:description" content="How I turned a messy company list into an evidence-backed system for deciding where to focus my job search.">
+    <meta property="og:image" content="https://paultop.io/images/compass/compass-og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://paultop.io/compass/">
+    <meta property="twitter:title" content="Compass: Deciding Which Startups Deserve Attention">
+    <meta property="twitter:description" content="How I turned a messy company list into an evidence-backed system for deciding where to focus my job search.">
+    <meta property="twitter:image" content="https://paultop.io/images/compass/compass-og-image.png">
+
+    <link rel="canonical" href="https://paultop.io/compass/">
+
+    <link rel="icon" type="image/png" href="/paulfavicon.png?v=3">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --accent: #666666;
+            --border: #eeeeee;
+        }
+
+        ::selection {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 64px 24px 80px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .page-header a:hover {
+            opacity: 0.6;
+        }
+
+        .hero {
+            margin-bottom: 64px;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 16px;
+            max-width: 720px;
+        }
+
+        .dek {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 28px;
+            max-width: 620px;
+        }
+
+        .hero-cta {
+            margin-top: 4px;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            max-width: 720px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 40px 0 20px;
+            max-width: 720px;
+        }
+
+        .case-text p {
+            font-size: 1.08rem;
+            margin-bottom: 24px;
+            max-width: 720px;
+        }
+
+        b, strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .tech-list {
+            max-width: 720px;
+            margin: 0 0 24px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tech-list li {
+            font-size: 1.08rem;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-list li:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        /* Research modules: Funding, Hiring, Developer Momentum */
+        .module {
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+        }
+
+        .module-kicker {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        /* Screenshot figures: allowed to break out wider than the prose column */
+        .figure {
+            margin: 40px 0;
+        }
+
+        .figure img {
+            display: block;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease;
+        }
+
+        .figure img:hover,
+        .figure img:focus-visible {
+            opacity: 0.88;
+        }
+
+        .figure img:focus-visible {
+            outline: 2px solid var(--text);
+            outline-offset: 2px;
+        }
+
+        /* Mobile-shaped screenshots (portrait phone captures) — the default
+           .figure img rule targets landscape desktop screenshots up to
+           1000px wide; stretching a 375px-wide mobile capture to that same
+           width would upscale it well past its native resolution and make
+           it absurdly tall. Capped to a phone-proportioned display width
+           instead, still comfortably retina-sharp at this size against the
+           750px-wide source captures. */
+        .figure-mobile img {
+            max-width: 380px;
+        }
+
+        .figure-caption {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--accent);
+            margin-top: 10px;
+            letter-spacing: 0.01em;
+        }
+
+        /* Exa lesson callout */
+        .callout {
+            max-width: 720px;
+            margin: 32px 0 0;
+            padding-left: 18px;
+            border-left: 3px solid var(--border);
+        }
+
+        .callout-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+        }
+
+        .callout p + p {
+            margin-top: 16px;
+        }
+
+        /* Demo CTA (hero + final) */
+        .btn {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            opacity: 0.6;
+            transform: translateY(-1px);
+        }
+
+        .demo-cta {
+            text-align: center;
+            margin: 64px 0 0;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .demo-cta .btn {
+            font-size: 1.1rem;
+        }
+
+        .footer-divider {
+            width: 48px;
+            height: 1px;
+            background: var(--border);
+            margin: 80px auto 0;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-email {
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+
+        .footer-email a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-email a:hover {
+            opacity: 0.6;
+        }
+
+        /* Screenshot lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.92);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-image-wrap {
+            position: relative;
+            max-width: 94vw;
+            max-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image {
+            display: block;
+            max-width: 94vw;
+            max-height: 82vh;
+            width: auto;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+
+        .lightbox-image.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .lightbox-caption {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #cccccc;
+            letter-spacing: 0.01em;
+            max-width: 94vw;
+        }
+
+        .lightbox-close,
+        .lightbox-nav {
+            position: fixed;
+            background: rgba(20, 20, 20, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #ffffff;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.2s ease, background 0.2s ease;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightbox-close:hover,
+        .lightbox-nav:hover {
+            background: rgba(20, 20, 20, 0.75);
+        }
+
+        .lightbox-close:focus-visible,
+        .lightbox-nav:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        .lightbox-close {
+            top: 20px;
+            right: 20px;
+        }
+
+        .lightbox-nav {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-nav[hidden],
+        .lightbox-close[hidden] {
+            display: none;
+        }
+
+        body.lightbox-locked {
+            overflow: hidden;
+        }
+
+        @media (max-width: 640px) {
+            .lightbox {
+                padding: 16px;
+            }
+
+            .lightbox-close,
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .lightbox-close {
+                top: 12px;
+                right: 12px;
+            }
+
+            .lightbox-prev {
+                left: 8px;
+            }
+
+            .lightbox-next {
+                right: 8px;
+            }
+
+            .lightbox-image {
+                max-height: 78vh;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 48px 20px 64px;
+            }
+
+            h1 {
+                font-size: 1.85rem;
+            }
+
+            .dek {
+                font-size: 1.02rem;
+            }
+
+            .case-text p {
+                font-size: 1.02rem;
+            }
+
+            .tech-list li {
+                font-size: 1.02rem;
+            }
+
+            h3 {
+                font-size: 1.05rem;
+                margin: 32px 0 16px;
+            }
+
+            .module {
+                padding-left: 14px;
+            }
+
+            .demo-cta {
+                margin-top: 48px;
+                padding-top: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="../index.html">&larr; Home</a>
+    </div>
+
+    <header class="hero">
+        <h1>Compass: Deciding Which Startups Deserve Attention</h1>
+        <p class="dek">How I turned a messy company list into an evidence-backed system for deciding where to focus my job search.</p>
+        <a href="https://compass-demo.paultop.io" class="btn hero-cta" target="_blank" rel="noopener noreferrer">Explore the Compass demo &rarr;</a>
+    </header>
+
+    <section class="case-text">
+        <h2>The Problem</h2>
+        <p>
+            LinkedIn, Crunchbase, recruiter outreach, VC portfolio lists, and spreadsheets each solve part of a job search. None solved the part I actually got stuck on: deciding which startups were worth pursuing in the first place.
+        </p>
+        <p>
+            After several years in technical infrastructure sales at Confluent and two years selling QA automation software at Tricentis, I knew I wanted to return to the startup world, ideally at a company solving a foundational technical problem.
+        </p>
+        <p>
+            It started with a Python script and a Google Sheet. The script helped me find companies, but the result quickly became another messy list: inconsistent information, no useful order, and no practical way to know where to focus.
+        </p>
+        <p>
+            Meanwhile, recruiters kept pitching companies that had little connection to what I wanted.
+        </p>
+        <p>
+            Finding open positions was not the hard part. The hard part was identifying which companies fit my thesis: startups solving foundational, technically interesting problems, generally around Series A through C, with strong funding, hiring, and product momentum.
+        </p>
+        <p>
+            I had no consistent way to discover those companies, evaluate them, or track what was changing.
+        </p>
+    </section>
+
+    <section class="case-text">
+        <h2>Building Compass</h2>
+        <p>
+            That Python script and Google Sheet became the starting point for Compass. I moved the list into a database and began building a system that could research, evaluate, and prioritize the companies inside it.
+        </p>
+        <p>
+            I had already been following Exa, a search engine built for AI applications. Its API gave Compass a way to retrieve relevant information scattered across the open web, including company websites, funding announcements, career pages, technical posts, and other evidence useful for evaluating a company.
+        </p>
+
+        <h3>From a List to a Research System</h3>
+
+        <div class="figure">
+            <img src="../images/compass/sources-coverage-desktop.webp" data-full="../images/compass/sources-coverage-desktop-full.png" width="2000" height="1454" alt="Compass Sources page listing tracked company coverage across a16z Portfolio, Bessemer Venture Partners, Forbes Cloud 100, Heavybit Portfolio, Redpoint InfraRed 100, and other curated lists, each with a coverage percentage and last-reviewed date." loading="lazy">
+            <div class="figure-caption">Every source's coverage and freshness, tracked openly</div>
+        </div>
+
+        <p>
+            Scheduled scans help keep the company registry current, with a review step before changes are applied. Research and evaluation pipelines turn scattered public information into structured company profiles and written rationales rather than a pile of search results.
+        </p>
+        <p>
+            Each company accumulates signals over time, including funding activity, hiring momentum, public developer activity, notable events, and an assessment of whether it is solving a foundational problem in its category.
+        </p>
+        <p>
+            Those signals are not produced by one broad research prompt. I built separate modules for the questions I cared about, each with its own sources, logic, and guardrails.
+        </p>
+
+        <h3>Technology</h3>
+        <p>
+            Compass combines a Next.js and React interface with a Python research backend. Supabase stores the company registry, evidence, evaluations, and user state. Exa retrieves information from the open web, OpenAI structures and synthesizes unstructured evidence, and direct APIs provide signals where deterministic data is more reliable.
+        </p>
+        <p>
+            Each component has a specific role:
+        </p>
+        <ul class="tech-list">
+            <li><strong>Next.js, React, TypeScript, and Tailwind CSS</strong> for the application and public demo</li>
+            <li><strong>Supabase and Postgres</strong> for the registry, evidence, evaluations, and user state</li>
+            <li><strong>Python</strong> for research, enrichment, scoring, and data pipelines</li>
+            <li><strong>Exa and OpenAI</strong> for retrieval, evidence structuring, and research synthesis</li>
+            <li><strong>GitHub API, Mapbox, and applicant-tracking APIs</strong> for developer signals, geographic browsing, and hiring data</li>
+            <li><strong>Modal and Vercel</strong> for backend execution, scheduling, and deployment</li>
+        </ul>
+    </section>
+
+    <section class="case-text module">
+        <p class="module-kicker">Research Modules</p>
+        <h2>Funding</h2>
+        <p>
+            The funding module uses Exa's API to retrieve current public information about funding rounds and investors, then uses OpenAI's API to structure the evidence into fields such as stage, latest round, amount raised, total reported funding, date, lead investor, and source.
+        </p>
+        <p>
+            It prioritizes company announcements, investor posts, press releases, and reputable reporting. When the evidence is insufficient, it leaves the information blank rather than filling the gap with an assumption.
+        </p>
+        <p>
+            It also guards against common mistakes, such as confusing valuation with capital raised or calculating a cumulative total that no source explicitly reported.
+        </p>
+
+        <div class="figure figure-mobile">
+            <img src="../images/compass/exa-funding-momentum-mobile.png" width="750" height="1624" alt="Compass company drawer for Exa showing Funding Momentum: a Strong momentum signal at high confidence, a $250M Series C from May 2026, and the full seed-to-Series-C stage progression." loading="lazy">
+            <div class="figure-caption">Funding evidence, structured and sourced</div>
+        </div>
+
+        <p>
+            This gives me the funding information I care about without a paid Crunchbase subscription, while keeping the underlying evidence visible.
+        </p>
+
+        <div class="callout">
+            <div class="callout-title">What Building with Exa Taught Me</div>
+            <p>
+                Exa helped Compass find conceptually relevant material without depending entirely on exact keyword matches. But retrieval was only the beginning.
+            </p>
+            <p>
+                I learned that a relevant source does not necessarily support every claim generated from it. A citation can look credible even when the accompanying summary overreaches the evidence.
+            </p>
+            <p>
+                That failure pushed me to add stricter checks between what Compass retrieves and what it presents as fact, including confidence signals and evidence-sufficiency checks. This helps the system distinguish between a well-supported conclusion, a tentative signal, and a question that still needs human review.
+            </p>
+            <p>
+                Building this gave me a practical understanding of both the value of semantic retrieval and the difficult product problems that begin after the results come back.
+            </p>
+        </div>
+    </section>
+
+    <section class="case-text module">
+        <h2>Hiring</h2>
+        <p>
+            Hiring is one of the most useful timing signals in Compass, but it is time-consuming to inspect manually.
+        </p>
+        <p>
+            Instead of checking hundreds of career pages individually, Compass collects and normalizes openings from applicant-tracking systems including Greenhouse, Lever, and Ashby, then associates them with the correct companies.
+        </p>
+        <p>
+            It can then answer the questions I actually care about: Is the company hiring? Is it building a go-to-market organization? Which functions and locations are active? Does the pattern suggest an enterprise sales motion, support expansion, or an early go-to-market buildout?
+        </p>
+        <p>
+            This turns scattered job postings into a company-level signal that can inform timing and prioritization.
+        </p>
+
+        <div class="figure figure-mobile">
+            <img src="../images/compass/together-ai-hiring-activity-mobile.png" width="750" height="1624" alt="Compass company drawer for Together AI showing Hiring Activity: a Strong go-to-market hiring signal, with open roles including AI Native Account Executive, AI Solutions Architect, Technical Account Manager, Enterprise Account Executive, and Sales Development Engineer." loading="lazy">
+            <div class="figure-caption">Hiring activity translated into a GTM signal</div>
+        </div>
+    </section>
+
+    <section class="case-text module">
+        <h2>Developer Momentum</h2>
+        <p>
+            For developer-focused companies, Compass looks beyond the claims on a company's website for visible signs of public technical traction.
+        </p>
+        <p>
+            Using the GitHub API, it attempts to match each company to its public organization and then examines repository activity, contributors, releases, stars, and recency.
+        </p>
+        <p>
+            The module balances historical popularity with current activity, so a smaller but fast-moving project can still surface as a strong signal while a widely starred but dormant one is penalized.
+        </p>
+        <p>
+            Because matching the wrong GitHub organization would make every metric that follows meaningless, uncertain matches are flagged for review rather than automatically scored.
+        </p>
+        <p>
+            I deliberately did not use AI for every part of Compass. Exa handles open-web retrieval, OpenAI helps structure and synthesize unstructured evidence, and direct APIs or deterministic code handle tasks where precision matters more than interpretation.
+        </p>
+        <p>
+            The goal was not to maximize the amount of AI in the system, but to use the right method for each research problem.
+        </p>
+
+        <div class="figure figure-mobile">
+            <img src="../images/compass/tailscale-developer-momentum-mobile.png" width="750" height="1194" alt="Compass company drawer for Tailscale showing Developer Momentum: 43,813 GitHub stars, 100 contributors, and repository activity across tailscale, tailscale-android, and golink." loading="lazy">
+            <div class="figure-caption">Public developer activity, not just marketing claims</div>
+        </div>
+    </section>
+
+    <section class="case-text">
+        <h2>Radar</h2>
+        <p>
+            No single signal determines whether a company is worth pursuing. Funding can indicate timing, hiring can reveal how the organization is developing, and public developer activity can provide evidence of technical traction.
+        </p>
+        <p>
+            Radar brings those signals together with my search preferences.
+        </p>
+
+        <div class="figure">
+            <img src="../images/compass/radar-best-matches-desktop.webp" data-full="../images/compass/radar-best-matches-desktop-full.png" width="2000" height="1250" alt="Compass Radar view showing Best Matches: a ranked list of companies including Atlan, Airbyte, Coalesce, and PlanetScale, with category filters and match, stage, hiring activity, and developer momentum columns visible." loading="lazy">
+            <div class="figure-caption">Radar keeps the underlying signals visible</div>
+        </div>
+
+        <p>
+            Rather than reducing everything to one unexplained score, Radar keeps the underlying evidence visible. I can see which companies fit my thesis, why they rank where they do, and where important information is still missing.
+        </p>
+
+        <div class="figure">
+            <img src="../images/compass/exa-drawer-signals-desktop.webp" data-full="../images/compass/exa-drawer-signals-desktop-full.png" width="2000" height="2856" alt="Full Compass company drawer for Exa showing Company Facts, Funding Momentum, Developer Momentum, Hiring Activity, and Timeline together in one profile." loading="lazy">
+            <div class="figure-caption">One company, every signal in context</div>
+        </div>
+
+        <h3>From Research to Action</h3>
+
+        <p>
+            Compass changed my job search from a reactive process into a deliberate one.
+        </p>
+        <p>
+            Instead of starting with whichever recruiter or job posting happened to appear that week, I could begin with a researched company thesis, identify the strongest opportunities, and investigate roles from there.
+        </p>
+        <p>
+            It also surfaced gaps in my own assumptions. Companies I initially found compelling sometimes weakened under closer inspection, while less familiar companies rose because their evidence, timing, and technical momentum were stronger.
+        </p>
+        <p>
+            Compass now maintains a registry of roughly 680 companies and turns that universe into a smaller, evidence-backed set of Best Matches.
+        </p>
+        <p>
+            What began as a messy spreadsheet is now a working system for researching companies, comparing them consistently, and revisiting them as new evidence appears.
+        </p>
+        <p>
+            Compass does not predict where I will work next. It gives me a disciplined way to decide where my time and attention are most likely to matter.
+        </p>
+    </section>
+
+    <div class="demo-cta">
+        <a href="https://compass-demo.paultop.io" class="btn" target="_blank" rel="noopener noreferrer">Explore the Compass demo &rarr;</a>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <footer>
+        <div class="links">
+            <a href="../index.html" class="btn">Home</a>
+            <a href="https://linkedin.com/in/paultop4" class="btn">LinkedIn</a>
+            <a href="../map.html" class="btn">Where I've Been</a>
+        </div>
+
+        <p class="footer-email">
+            <a href="mailto:paultop@aol.com">paultop@aol.com</a>
+        </p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" aria-hidden="true">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous screenshot">&#8249;</button>
+        <div class="lightbox-image-wrap">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        </div>
+        <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next screenshot">&#8250;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script>
+        (function () {
+            var images = Array.prototype.slice.call(document.querySelectorAll('.figure img'));
+            if (!images.length) return;
+
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImage = document.getElementById('lightboxImage');
+            var lightboxCaption = document.getElementById('lightboxCaption');
+            var closeBtn = document.getElementById('lightboxClose');
+            var prevBtn = document.getElementById('lightboxPrev');
+            var nextBtn = document.getElementById('lightboxNext');
+
+            var currentIndex = -1;
+            var lastFocusedEl = null;
+            var scrollLockPadding = 0;
+
+            images.forEach(function (img, index) {
+                img.setAttribute('tabindex', '0');
+                img.setAttribute('role', 'button');
+                img.setAttribute('aria-label', 'Open larger screenshot: ' + (img.alt || 'Compass screenshot'));
+
+                img.addEventListener('click', function () {
+                    open(index);
+                });
+
+                img.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        open(index);
+                    }
+                });
+            });
+
+            function lockScroll() {
+                scrollLockPadding = window.innerWidth - document.documentElement.clientWidth;
+                if (scrollLockPadding > 0) {
+                    document.body.style.paddingRight = scrollLockPadding + 'px';
+                }
+                document.body.classList.add('lightbox-locked');
+            }
+
+            function unlockScroll() {
+                document.body.classList.remove('lightbox-locked');
+                document.body.style.paddingRight = '';
+            }
+
+            function updateNavVisibility() {
+                var multi = images.length > 1;
+                prevBtn.hidden = !multi;
+                nextBtn.hidden = !multi;
+            }
+
+            function render() {
+                var img = images[currentIndex];
+                lightboxImage.classList.remove('loaded');
+
+                var fullSrc = img.getAttribute('data-full') || img.currentSrc || img.src;
+                lightboxImage.src = fullSrc;
+                lightboxImage.alt = img.alt || '';
+
+                var figureEl = img.closest('.figure');
+                var captionEl = figureEl ? figureEl.querySelector('.figure-caption') : null;
+                lightboxCaption.textContent = (captionEl && captionEl.textContent.trim()) || img.alt || '';
+
+                if (lightboxImage.complete) {
+                    requestAnimationFrame(function () {
+                        lightboxImage.classList.add('loaded');
+                    });
+                }
+            }
+
+            lightboxImage.addEventListener('load', function () {
+                lightboxImage.classList.add('loaded');
+            });
+
+            function open(index) {
+                currentIndex = index;
+                lastFocusedEl = document.activeElement;
+                updateNavVisibility();
+                render();
+
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                lockScroll();
+
+                closeBtn.focus();
+
+                document.addEventListener('keydown', onKeydown);
+                lightbox.addEventListener('click', onBackdropClick);
+            }
+
+            function close() {
+                lightbox.classList.remove('open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                unlockScroll();
+
+                document.removeEventListener('keydown', onKeydown);
+                lightbox.removeEventListener('click', onBackdropClick);
+
+                if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+                    lastFocusedEl.focus();
+                }
+                currentIndex = -1;
+            }
+
+            function showPrev() {
+                if (images.length < 2) return;
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                render();
+            }
+
+            function showNext() {
+                if (images.length < 2) return;
+                currentIndex = (currentIndex + 1) % images.length;
+                render();
+            }
+
+            function onBackdropClick(e) {
+                if (e.target === lightbox) {
+                    close();
+                }
+            }
+
+            var focusableSelector = 'button:not([hidden])';
+
+            function onKeydown(e) {
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    close();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    showPrev();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    showNext();
+                } else if (e.key === 'Tab') {
+                    var focusable = Array.prototype.slice.call(lightbox.querySelectorAll(focusableSelector));
+                    if (!focusable.length) return;
+                    var first = focusable[0];
+                    var last = focusable[focusable.length - 1];
+
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+
+            closeBtn.addEventListener('click', close);
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
+
+            // Touch swipe navigation (mobile gesture support)
+            var touchStartX = null;
+
+            lightbox.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+
+            lightbox.addEventListener('touchend', function (e) {
+                if (touchStartX === null) return;
+                var deltaX = e.changedTouches[0].clientX - touchStartX;
+                var threshold = 40;
+
+                if (deltaX > threshold) {
+                    showPrev();
+                } else if (deltaX < -threshold) {
+                    showNext();
+                }
+                touchStartX = null;
+            }, { passive: true });
+        })();
+    </script>
+
+</body>
+</html>
