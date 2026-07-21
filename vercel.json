@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/compass", "destination": "/compass/", "permanent": true },
+    { "source": "/compass/index.html", "destination": "/compass/", "permanent": true }
+  ]
+}
