@@ -554,22 +554,6 @@
         <p>
             Compass does not turn that evidence into signals with a single, general-purpose research prompt. I built a separate module for each question I cared about, with its own sources, logic, and guardrails.
         </p>
-
-        <h3>Technology</h3>
-        <p>
-            Compass separates the product experience from the research and data pipelines behind it. A Next.js and React interface provides the application layer, while a Python backend handles research, enrichment, and scoring. Supabase serves as the shared system of record. Exa and OpenAI handle retrieval and interpretation, while direct APIs supply structured signals when deterministic data is available.
-        </p>
-        <p>
-            The core stack includes:
-        </p>
-        <ul class="tech-list">
-            <li><strong>Next.js, React, TypeScript, and Tailwind CSS</strong> for the application and public demo</li>
-            <li><strong>Supabase and Postgres</strong> for the company registry, evidence, evaluations, and user state</li>
-            <li><strong>Python</strong> for research, enrichment, scoring, and data pipelines</li>
-            <li><strong>Exa and OpenAI</strong> for open-web retrieval, evidence structuring, and research synthesis</li>
-            <li><strong>GitHub API, Mapbox, and applicant-tracking APIs</strong> for developer activity, geographic exploration, and hiring evidence</li>
-            <li><strong>Modal and Vercel</strong> for research execution, scheduling, hosting, and deployment</li>
-        </ul>
     </section>
 
     <section class="case-text module">
@@ -614,7 +598,7 @@
     <section class="case-text module">
         <h2>Hiring</h2>
         <p>
-            Hiring activity is one of the most useful signals for understanding a company's timing, but tracking it consistently across hundreds of companies is impractical by hand.
+            Hiring activity is one of the most useful signals for understanding a company's timing, but tracking it consistently across hundreds of companies is impractical.
         </p>
         <p>
             Instead of checking career pages individually, Compass collects and normalizes openings from applicant-tracking systems including Greenhouse, Lever, and Ashby, then associates each posting with the correct company.
@@ -627,8 +611,8 @@
         </p>
 
         <div class="figure figure-mobile">
-            <img src="../images/compass/together-ai-hiring-activity-mobile.png" width="750" height="1624" alt="Compass company drawer for Together AI showing Hiring Activity: a Strong go-to-market hiring signal, with open roles including AI Native Account Executive, AI Solutions Architect, Technical Account Manager, Enterprise Account Executive, and Sales Development Engineer." loading="lazy">
-            <div class="figure-caption">Hiring activity translated into a GTM signal</div>
+            <img src="../images/compass/acceldata-open-roles-mobile.png" width="750" height="1104" alt="Compass company drawer for Acceldata showing Open Roles Evidence: 12 Core GTM, 1 Tech GTM, and 1 Adjacent role, with direct links to live Lever postings including multiple Enterprise Account Executive roles, a Sales Engineer role, and a Staff Product and Partner Marketing Manager role." loading="lazy">
+            <div class="figure-caption">Direct ATS roles, translated into a GTM signal</div>
         </div>
     </section>
 
@@ -681,9 +665,28 @@
             <img src="../images/compass/exa-drawer-signals-desktop-preview.webp" data-full="../images/compass/exa-drawer-signals-desktop-full.png" width="2000" height="1550" alt="Compass company drawer for Exa showing Company Facts, Funding Momentum, and Developer Momentum together in one profile." loading="lazy">
             <div class="figure-caption">One company, every signal in context</div>
         </div>
+    </section>
 
-        <h3>From Research to Action</h3>
+    <section class="case-text">
+        <h2>Technology</h2>
+        <p>
+            Compass separates the product experience from the research and data pipelines behind it. A Next.js and React interface provides the application layer, while a Python backend handles research, enrichment, and scoring. Supabase serves as the shared system of record.
+        </p>
+        <p>
+            The core stack includes:
+        </p>
+        <ul class="tech-list">
+            <li><strong>Next.js, React, TypeScript, and Tailwind CSS</strong> for the application and public demo</li>
+            <li><strong>Supabase and Postgres</strong> for the company registry, evidence, evaluations, and user state</li>
+            <li><strong>Python</strong> for research, enrichment, scoring, and data pipelines</li>
+            <li><strong>Exa and OpenAI</strong> for open-web retrieval, evidence structuring, and research synthesis</li>
+            <li><strong>GitHub API, Mapbox, and applicant-tracking APIs</strong> for developer activity, geographic exploration, and hiring evidence</li>
+            <li><strong>Modal and Vercel</strong> for research execution, scheduling, hosting, and deployment</li>
+        </ul>
+    </section>
 
+    <section class="case-text">
+        <h2>From Research to Action</h2>
         <p>
             Compass changed my job search from a reactive process into a deliberate one.
         </p>
