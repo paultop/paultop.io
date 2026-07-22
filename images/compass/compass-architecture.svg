@@ -76,9 +76,10 @@
   </g>
   <text x="592" y="536" font-size="16" font-weight="600" fill="#111111">Timeline Events</text>
 
-  <!-- Powered by footer -->
-  <line x1="240" y1="576" x2="800" y2="576" stroke="#cccccc" stroke-width="1"/>
-  <text x="520" y="600" text-anchor="middle" font-size="12.5" fill="#4C5D93">Powered by: Exa &#183; OpenAI &#183; GitHub</text>
+  <!-- Runs-on / Powered-by footer (both secondary to the six capability rows above) -->
+  <line x1="240" y1="574" x2="800" y2="574" stroke="#cccccc" stroke-width="1"/>
+  <text x="520" y="594" text-anchor="middle" font-size="12.5" fill="#4C5D93">Runs on Python + Modal</text>
+  <text x="520" y="613" text-anchor="middle" font-size="12.5" fill="#4C5D93">Powered by: Exa &#183; OpenAI &#183; GitHub</text>
 
   <!-- 4. Shared Company Intelligence -->
   <rect x="270" y="670" width="500" height="80" rx="10" fill="#f0f0f0" stroke="#111111" stroke-width="1.5"/>
