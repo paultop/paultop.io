@@ -171,7 +171,11 @@
             margin-bottom: 8px;
         }
 
-        /* Screenshot figures: allowed to break out wider than the prose column */
+        /* Screenshot figures: allowed to break out wider than the prose column,
+           but reined in from the full 1000px content width by default so a
+           screenshot supports the surrounding paragraph rather than
+           dominating the section. Specific figures widen (the architecture
+           diagram) or narrow further (Sources, portrait captures) below. */
         .figure {
             margin: 40px 0;
         }
@@ -179,7 +183,7 @@
         .figure img {
             display: block;
             width: 100%;
-            max-width: 1000px;
+            max-width: 880px;
             height: auto;
             margin: 0 auto;
             border: 1px solid var(--border);
@@ -198,14 +202,23 @@
             outline-offset: 2px;
         }
 
+        /* Sources coverage table: a dense, text-heavy screenshot that should
+           support the "Building Compass" paragraph rather than dominate the
+           section -- narrower than the other wide desktop screenshots. */
+        .figure.figure-sources img {
+            max-width: 640px;
+        }
+
         /* Mobile-shaped screenshots (portrait phone captures) — the default
-           .figure img rule targets landscape desktop screenshots up to
-           1000px wide; stretching a 375px-wide mobile capture to that same
-           width would upscale it well past its native resolution and make
-           it absurdly tall. Capped to a phone-proportioned display width
-           instead, still comfortably retina-sharp at this size against the
-           750px-wide source captures. */
-        .figure-mobile img {
+           .figure img rule targets landscape desktop screenshots; stretching
+           a 375px-wide mobile capture to that same width would upscale it
+           well past its native resolution and make it absurdly tall, and
+           widening it also makes it proportionally MORE dominant (a taller
+           portrait image), the opposite of the goal here. Capped to a
+           considered, centered phone-proportioned display width instead,
+           still comfortably retina-sharp against the 750px-wide source
+           captures. */
+        .figure.figure-mobile img {
             max-width: 380px;
         }
 
@@ -219,9 +232,15 @@
 
         /* Architecture diagram: same figure treatment as a screenshot, with
            extra vertical breathing room so it reads as a centerpiece rather
-           than another inline screenshot. */
+           than another inline screenshot. Explicitly kept at the full
+           1000px width (wider than the new 880px default for other wide
+           screenshots) since it's the diagram's own intended prominence. */
         .figure-diagram {
             margin: 64px 0;
+        }
+
+        .figure.figure-diagram img {
+            max-width: 1000px;
         }
 
         /* Exa lesson callout */
@@ -554,7 +573,7 @@
             Compass starts from curated company sources: VC portfolio lists and other industry lists I trust, spanning categories like AI infrastructure, data infrastructure, and developer tools. Each company is normalized into a shared registry that every research pipeline draws from, rather than living in scattered spreadsheets. One source is scanned automatically, with changes diffed against the registry so new or updated companies are never missed.
         </p>
 
-        <div class="figure">
+        <div class="figure figure-sources">
             <img src="../images/compass/sources-coverage-desktop.webp" data-full="../images/compass/sources-coverage-desktop-full.png" width="2000" height="1454" alt="Compass Sources page listing tracked company coverage across a16z Portfolio, Bessemer Venture Partners, Forbes Cloud 100, Heavybit Portfolio, Redpoint InfraRed 100, and other curated lists, each with a coverage percentage and last-reviewed date." loading="lazy">
             <div class="figure-caption">Every source's coverage and freshness, tracked openly</div>
         </div>
