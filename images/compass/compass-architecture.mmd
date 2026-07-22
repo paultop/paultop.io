@@ -1,0 +1,33 @@
+%% Compass — public architecture diagram (portfolio version)
+%% Source of truth for images/compass/compass-architecture.svg
+%% Verified against the compass + compass-dashboard codebases; see the
+%% audit conversation for the underlying technical findings.
+
+flowchart TD
+    SRC["Curated Company Sources<br/><span style='font-size:11px;color:#666'>VC portfolios &amp; sourced lists</span>"]
+    REG["Company Registry"]
+
+    RESEARCH["<span style='color:#4C5D93'>Research Pipeline</span><br/><br/>&#128269; Company Research<br/>&#128196; Structured Evidence<br/>&#128200; Funding Signals<br/>&#128188; Hiring Activity<br/>&#128104;&#8205;&#128187; Developer Momentum<br/>&#128240; Timeline Events<br/><br/><span style='font-size:11px;color:#4C5D93'>Powered by: Exa &middot; OpenAI &middot; GitHub</span>"]
+
+    SHARED[("Shared Company Intelligence<br/><span style='font-size:11px;color:#666'>facts, evidence, funding, hiring, momentum, timeline</span>")]
+    PERSONAL[("Personalized Matching &amp; Fit Analysis<br/><span style='font-size:11px;color:#666'>search profile, match evaluation, fit report</span>")]
+
+    DASH["Compass Dashboard<br/><span style='font-size:11px;color:#666'>Next.js + React · Vercel</span>"]
+    OUT["Ranked Target Companies"]
+
+    SRC --> REG --> RESEARCH --> SHARED --> PERSONAL --> DASH --> OUT
+
+    %% Single restrained accent color (#4C5D93, muted indigo) applied only to:
+    %% Research Pipeline title/border + icons, the "Powered by" line,
+    %% the Personalized Matching dashed border, and the final output box.
+    %% Everything else stays monochrome black/white/gray.
+    classDef shared fill:#f5f5f5,stroke:#111,stroke-width:1px
+    classDef personal fill:#ffffff,stroke:#4C5D93,stroke-width:1px,stroke-dasharray:3 2
+    classDef plain fill:#ffffff,stroke:#111,stroke-width:1px
+    classDef centerpiece fill:#ffffff,stroke:#4C5D93,stroke-width:2px
+    classDef output fill:#4C5D93,stroke:#4C5D93,stroke-width:1px,color:#ffffff
+    class SHARED shared
+    class PERSONAL personal
+    class SRC,REG,DASH plain
+    class RESEARCH centerpiece
+    class OUT output

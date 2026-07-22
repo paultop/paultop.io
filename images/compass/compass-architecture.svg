@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 1180" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#111111"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="1180" fill="#ffffff"/>
+
+  <!-- connective spine -->
+  <g stroke="#111111" stroke-width="1.5" marker-end="url(#arrow)">
+    <line x1="520" y1="115" x2="520" y2="163"/>
+    <line x1="520" y1="240" x2="520" y2="288"/>
+    <line x1="520" y1="630" x2="520" y2="668"/>
+    <line x1="520" y1="750" x2="520" y2="788"/>
+    <line x1="520" y1="870" x2="520" y2="908"/>
+    <line x1="520" y1="985" x2="520" y2="1023"/>
+  </g>
+
+  <!-- 1. Curated Company Sources -->
+  <rect x="350" y="40" width="340" height="75" rx="8" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+  <text x="520" y="83" text-anchor="middle" font-size="17" font-weight="600" fill="#111111">Curated Company Sources</text>
+  <text x="520" y="102" text-anchor="middle" font-size="11" fill="#666666">VC portfolios &amp; sourced lists</text>
+
+  <!-- 2. Company Registry -->
+  <rect x="350" y="165" width="340" height="75" rx="8" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+  <text x="520" y="209" text-anchor="middle" font-size="17" font-weight="600" fill="#111111">Company Registry</text>
+
+  <!-- 3. RESEARCH PIPELINE — visual centerpiece (accent: outer border, title, icons, "Powered by" line) -->
+  <rect x="200" y="290" width="640" height="340" rx="12" fill="#ffffff" stroke="#4C5D93" stroke-width="2.5"/>
+  <text x="520" y="330" text-anchor="middle" font-size="21" font-weight="700" letter-spacing="0.02em" fill="#4C5D93">Research Pipeline</text>
+  <line x1="240" y1="348" x2="800" y2="348" stroke="#111111" stroke-width="1"/>
+
+  <!-- Row 1: Company Research | Structured Evidence -->
+  <g transform="translate(260,372)">
+    <circle cx="9" cy="7" r="6" fill="none" stroke="#4C5D93" stroke-width="1.6"/>
+    <line x1="13.5" y1="11.5" x2="19" y2="17" stroke="#4C5D93" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <text x="292" y="392" font-size="16" font-weight="600" fill="#111111">Company Research</text>
+
+  <g transform="translate(560,368)">
+    <rect x="4" y="2" width="13" height="17" rx="1.5" fill="none" stroke="#4C5D93" stroke-width="1.5"/>
+    <line x1="7" y1="7" x2="14" y2="7" stroke="#4C5D93" stroke-width="1.3"/>
+    <line x1="7" y1="11" x2="14" y2="11" stroke="#4C5D93" stroke-width="1.3"/>
+    <line x1="7" y1="15" x2="12" y2="15" stroke="#4C5D93" stroke-width="1.3"/>
+  </g>
+  <text x="592" y="392" font-size="16" font-weight="600" fill="#111111">Structured Evidence</text>
+
+  <!-- Row 2: Funding Signals | Hiring Activity -->
+  <g transform="translate(260,444)">
+    <rect x="2" y="10" width="4.5" height="9" fill="#4C5D93"/>
+    <rect x="9" y="5" width="4.5" height="14" fill="#4C5D93"/>
+    <rect x="16" y="0" width="4.5" height="19" fill="#4C5D93"/>
+  </g>
+  <text x="292" y="464" font-size="16" font-weight="600" fill="#111111">Funding Signals</text>
+
+  <g transform="translate(560,446)">
+    <path d="M7,7 Q7,3 10,3 Q13,3 13,7" fill="none" stroke="#4C5D93" stroke-width="1.5"/>
+    <rect x="2" y="7" width="16" height="11" rx="1.5" fill="none" stroke="#4C5D93" stroke-width="1.6"/>
+    <line x1="2" y1="12" x2="18" y2="12" stroke="#4C5D93" stroke-width="1.3"/>
+  </g>
+  <text x="592" y="464" font-size="16" font-weight="600" fill="#111111">Hiring Activity</text>
+
+  <!-- Row 3: Developer Momentum | Timeline Events -->
+  <g transform="translate(260,518)">
+    <polyline points="8,2 2,10 8,18" fill="none" stroke="#4C5D93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="13,2 19,10 13,18" fill="none" stroke="#4C5D93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="292" y="536" font-size="16" font-weight="600" fill="#111111">Developer Momentum</text>
+
+  <g transform="translate(560,522)">
+    <line x1="1" y1="9" x2="19" y2="9" stroke="#4C5D93" stroke-width="1.5"/>
+    <circle cx="3" cy="9" r="2" fill="#4C5D93"/>
+    <circle cx="10" cy="9" r="2" fill="#4C5D93"/>
+    <circle cx="17" cy="9" r="2" fill="#4C5D93"/>
+  </g>
+  <text x="592" y="536" font-size="16" font-weight="600" fill="#111111">Timeline Events</text>
+
+  <!-- Powered by footer -->
+  <line x1="240" y1="576" x2="800" y2="576" stroke="#cccccc" stroke-width="1"/>
+  <text x="520" y="600" text-anchor="middle" font-size="12.5" fill="#4C5D93">Powered by: Exa &#183; OpenAI &#183; GitHub</text>
+
+  <!-- 4. Shared Company Intelligence -->
+  <rect x="270" y="670" width="500" height="80" rx="10" fill="#f0f0f0" stroke="#111111" stroke-width="1.5"/>
+  <text x="520" y="700" text-anchor="middle" font-size="17" font-weight="600" fill="#111111">Shared Company Intelligence</text>
+  <text x="520" y="720" text-anchor="middle" font-size="11" fill="#666666">facts · evidence · funding · hiring · momentum · timeline</text>
+  <text x="520" y="737" text-anchor="middle" font-size="10.5" fill="#888888" font-style="italic">Supabase / Postgres</text>
+
+  <!-- 5. Personalized Matching & Fit Analysis (accent: dashed border) -->
+  <rect x="270" y="790" width="500" height="80" rx="10" fill="#ffffff" stroke="#4C5D93" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="520" y="820" text-anchor="middle" font-size="17" font-weight="600" fill="#111111">Personalized Matching &amp; Fit Analysis</text>
+  <text x="520" y="840" text-anchor="middle" font-size="11" fill="#666666">search profile · match evaluation · fit report</text>
+  <text x="520" y="857" text-anchor="middle" font-size="10.5" fill="#888888" font-style="italic">Supabase / Postgres</text>
+
+  <!-- 6. Compass Dashboard -->
+  <rect x="350" y="910" width="340" height="75" rx="8" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+  <text x="520" y="942" text-anchor="middle" font-size="17" font-weight="600" fill="#111111">Compass Dashboard</text>
+  <text x="520" y="961" text-anchor="middle" font-size="11" fill="#666666">Next.js + React · Vercel</text>
+
+  <!-- 7. Ranked Target Companies (accent: fill) -->
+  <rect x="350" y="1025" width="340" height="75" rx="8" fill="#4C5D93" stroke="#4C5D93" stroke-width="1.5"/>
+  <text x="520" y="1069" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Ranked Target Companies</text>
+
+  <!-- legend -->
+  <g font-size="11" fill="#666666">
+    <rect x="350" y="1125" width="14" height="14" fill="#f0f0f0" stroke="#111111" stroke-width="1.2"/>
+    <text x="370" y="1136">Shared across every user</text>
+    <rect x="580" y="1125" width="14" height="14" fill="#ffffff" stroke="#111111" stroke-width="1.2" stroke-dasharray="3 2"/>
+    <text x="600" y="1136">Personalized per user</text>
+  </g>
+</svg>

@@ -217,6 +217,13 @@
             letter-spacing: 0.01em;
         }
 
+        /* Architecture diagram: same figure treatment as a screenshot, with
+           extra vertical breathing room so it reads as a centerpiece rather
+           than another inline screenshot. */
+        .figure-diagram {
+            margin: 64px 0;
+        }
+
         /* Exa lesson callout */
         .callout {
             max-width: 720px;
@@ -554,6 +561,16 @@
         <p>
             Compass does not turn that evidence into signals with a single, general-purpose research prompt. I built a separate module for each question I cared about, with its own sources, logic, and guardrails.
         </p>
+    </section>
+
+    <section class="case-text">
+        <h2>How Compass works</h2>
+        <p>
+            Compass turns curated company sources into structured company intelligence, then personalizes that intelligence against a search profile to produce a prioritized target list.
+        </p>
+        <div class="figure figure-diagram">
+            <img src="../images/compass/compass-architecture.svg" alt="Compass architecture diagram: curated company sources flow into a company registry, then a research pipeline covering company research, structured evidence, funding signals, hiring activity, developer momentum, and timeline events (powered by Exa, OpenAI, and GitHub) builds shared company intelligence. That intelligence feeds personalized matching and Fit Analysis, surfaced through the Compass dashboard as a ranked target company list." loading="lazy">
+        </div>
     </section>
 
     <section class="case-text module">
