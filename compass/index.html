@@ -533,18 +533,25 @@
     </section>
 
     <section class="case-text">
+        <h2>How Compass works</h2>
+        <p>
+            Compass turns curated company sources into structured company intelligence, then personalizes that intelligence against a search profile to produce a prioritized target list.
+        </p>
+        <div class="figure figure-diagram">
+            <img src="../images/compass/compass-architecture.svg" alt="Compass architecture diagram: curated company sources flow into a company registry, then a research pipeline covering company research, structured evidence, funding signals, hiring activity, developer momentum, and timeline events (powered by Exa, OpenAI, and GitHub) builds shared company intelligence. That intelligence feeds personalized matching and Fit Analysis, surfaced through the Compass dashboard as a ranked target company list." loading="lazy">
+        </div>
+    </section>
+
+    <section class="case-text">
         <h2>Building Compass</h2>
         <p>
             That Python script and Google Sheet became the starting point for Compass. I moved the list into a database and began building a system that could research, evaluate, and prioritize the companies inside it.
-        </p>
-        <p>
-            I had already been following Exa, whose AI-native approach to search struck me as an important piece of infrastructure for a new generation of applications. Its API gave Compass a way to retrieve relevant evidence across the open web, from company websites and funding announcements to career pages and technical posts.
         </p>
 
         <h3>From a List to a Research System</h3>
 
         <p>
-            Exa helped Compass research individual companies, but the system still needed a repeatable way to decide which companies entered the registry in the first place. I turned VC portfolios and curated industry lists into structured sources whose coverage and freshness could be tracked over time.
+            Compass starts from curated company sources: VC portfolio lists and other industry lists I trust, spanning categories like AI infrastructure, data infrastructure, and developer tools. Each company is normalized into a shared registry that every research pipeline draws from, rather than living in scattered spreadsheets. One source is scanned automatically, with changes diffed against the registry so new or updated companies are never missed.
         </p>
 
         <div class="figure">
@@ -553,24 +560,8 @@
         </div>
 
         <p>
-            Scheduled scans compare each source against the company registry and flag additions or discrepancies for review before changes are applied. Once a company enters Compass, separate research and evaluation pipelines turn that evidence into a structured profile and written rationale, rather than a pile of search results.
-        </p>
-        <p>
-            Over time, each company profile accumulates evidence about its funding, hiring, public developer activity, notable events, and whether it is addressing a foundational problem in its category.
-        </p>
-        <p>
             Compass does not turn that evidence into signals with a single, general-purpose research prompt. I built a separate module for each question I cared about, with its own sources, logic, and guardrails.
         </p>
-    </section>
-
-    <section class="case-text">
-        <h2>How Compass works</h2>
-        <p>
-            Compass turns curated company sources into structured company intelligence, then personalizes that intelligence against a search profile to produce a prioritized target list.
-        </p>
-        <div class="figure figure-diagram">
-            <img src="../images/compass/compass-architecture.svg" alt="Compass architecture diagram: curated company sources flow into a company registry, then a research pipeline covering company research, structured evidence, funding signals, hiring activity, developer momentum, and timeline events (powered by Exa, OpenAI, and GitHub) builds shared company intelligence. That intelligence feeds personalized matching and Fit Analysis, surfaced through the Compass dashboard as a ranked target company list." loading="lazy">
-        </div>
     </section>
 
     <section class="case-text module">
