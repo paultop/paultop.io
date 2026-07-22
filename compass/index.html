@@ -515,7 +515,7 @@
     <section class="case-text">
         <h2>Turning Signals Into Priorities</h2>
         <p>
-            No single metric determines whether a company is worth pursuing. Compass combines funding and stage, hiring patterns from real job postings, developer momentum, company maturity, market context, and personal fit. The distinctions matter: valuation is not the same as capital raised, and a small, fast-moving project can be more meaningful than a widely starred but dormant one. Each area is handled by a focused module rather than one pipeline attempting to answer every question.
+            No single metric determines whether a company is worth pursuing. Compass combines funding and stage, hiring patterns from real job postings, developer momentum, company maturity, market context, and personal fit. The value comes from interpreting those signals together: a young company with accelerating hiring and developer adoption may be more compelling than a larger, better-known company whose momentum has flattened. Each area is handled by a focused module rather than one pipeline attempting to answer every question.
         </p>
         <p>
             Compass also accounts for differences in evidence quality. A source may be relevant without fully supporting the conclusion drawn from it, so the system separates well-supported findings from tentative indicators and open questions.
@@ -538,7 +538,7 @@
     <section class="case-text">
         <h2>Technical Decisions</h2>
         <p>
-            Company intelligence and personalized matching are deliberately separate layers: the facts and evidence about a company are shared and reusable, while ranking and fit are computed against my own Search Profile and never mixed back in. Splitting research into focused, single-purpose modules instead of one broad prompt was a similar tradeoff, harder to build, but each module can be tested and trusted on its own. The same discipline applies to evidence: every claim carries a confidence level and a provenance trail back to its source, rather than being asserted outright.
+            Company intelligence and personalized matching are deliberately separate layers: the facts and evidence about a company are shared and reusable, while ranking and fit are computed against my own Search Profile and never mixed back in. Splitting research into focused, single-purpose modules instead of one broad prompt involved more engineering work, but it means each module can be tested and trusted on its own. The same discipline applies to evidence: every claim carries a confidence level and a provenance trail back to its source.
         </p>
         <p>
             The application runs on Next.js, Supabase, and Vercel. Research execution runs separately in Python on Modal, where compute scales down between runs rather than sitting idle. The public demo is read-only and isolated from my own account and data by design, not by convention.
@@ -551,13 +551,13 @@
     <section class="case-text">
         <h2>From Research to Action</h2>
         <p>
-            Compass changed my job search from a reactive process into a deliberate one. Instead of starting with whichever recruiter or job posting appeared that week, I start with my career thesis and look at the companies with the strongest evidence first.
+            Compass changed my job search from a reactive process into a deliberate one. Instead of starting with whichever recruiter or job posting appeared that week, I start with my career thesis and examine the companies with the strongest evidence first.
         </p>
         <p>
             It also surfaced gaps in my own assumptions. Companies I found compelling at first sometimes weakened under closer inspection, while less familiar ones rose because their evidence, timing, and technical momentum were stronger.
         </p>
         <p>
-            What began as a messy spreadsheet is now a working system that tracks roughly 680 companies and turns them into a small, evidence-backed set of Best Matches. It does not predict where I will work next. It gives me a disciplined way to decide where to invest my time and attention.
+            What began as a messy spreadsheet is now a working system that tracks hundreds of companies and narrows them into a small, evidence-backed set of Best Matches. It does not predict where I will work next. It gives me a disciplined way to decide where to invest my time and attention.
         </p>
     </section>
 
